@@ -6,5 +6,4 @@ function renderOverlay() {
   return overlayDiv;
 };
 
-
 export default renderOverlay;

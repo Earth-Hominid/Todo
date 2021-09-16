@@ -51,3 +51,11 @@ body{
 #list_holder {
   width: 15vw;
 }
+
+.close_button::before {
+  content: "\2715";
+}
+
+#form_modal {
+  margin-left: 300px;
+}
