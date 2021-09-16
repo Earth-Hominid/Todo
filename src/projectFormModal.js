@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 function renderProjectFormModal() {
   // create element
   const modalDiv = document.createElement('div'); 
@@ -16,6 +14,7 @@ function renderProjectFormModal() {
     modalTitle.classList = 'modal_title'
     modalTitle.textContent = 'Add project'
     closeButton.classList = 'close_button'
+    closeButton.textContent = '&times;'
     // append to DOM
     modalDiv.appendChild(modalHeader)
     modalHeader.appendChild(modalTitle)
