@@ -12,9 +12,20 @@ function renderLeftMenu() {
       leftMenu.appendChild(listHolder)
     })();
 
-    const taskGUI = () => {
-      
-    }
+    const renderNewProjectButton = (() => {
+      // create elements
+      const newProjectButtonDiv = document.createElement('div')
+      const newProjectButton = document.createElement('button')
+      // Set attributes, class, text
+      newProjectButtonDiv.classList = 'new_project_panel'
+      newProjectButton.setAttribute('type', 'button')
+      newProjectButton.setAttribute('aria-label', 'Add Project')
+      newProjectButton.classList = 'add_project'
+      newProjectButton.textContent = "New Project"
+      // Append to the DOM
+      leftMenu.appendChild(newProjectButtonDiv)
+      newProjectButtonDiv.appendChild(newProjectButton)
+    })()
 
     return leftMenu;
   };
