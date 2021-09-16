@@ -9,9 +9,6 @@ function renderNavigation() {
 
     // set attributes, images, and classes
     nav.setAttribute('id', 'nav');
-    nav.style.width = '100%';
-    nav.style.height = '50px';
-
     logo.src = Logo;
     logo.setAttribute('id', 'logo');
     logo.setAttribute('alt', 'todo logo');
