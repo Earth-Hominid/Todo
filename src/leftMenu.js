@@ -22,6 +22,7 @@ function renderLeftMenu() {
       newProjectButton.setAttribute('aria-label', 'Add Project')
       newProjectButton.classList = 'add_project'
       newProjectButton.textContent = "New Project"
+      newProjectButton.setAttribute('data-modal-target','#modal')
       // Append to the DOM
       leftMenu.appendChild(newProjectButtonDiv)
       newProjectButtonDiv.appendChild(newProjectButton)
