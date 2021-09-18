@@ -60,6 +60,7 @@ function renderProjectFormModal() {
     addButton.textContent = 'Add'
     cancelButton.setAttribute('type', 'button')
     cancelButton.classList = 'cancel_form_button'
+    cancelButton.setAttribute('data-close-button', '')
     cancelButton.textContent ='Cancel'
     // append to the DOM
     modalDiv.appendChild(footer)
