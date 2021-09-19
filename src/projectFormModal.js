@@ -30,6 +30,7 @@ function renderProjectFormModal() {
     const nameInput = document.createElement('input');
     // set attributes, classes etc
     projectForm.id = 'project_form';
+    projectForm.setAttribute('data-project-form', '')
     formField.classList = 'form_field';
     projectLabel.textContent = 'Name';
     projectLabel.id = 'project_modal_label';
@@ -40,6 +41,7 @@ function renderProjectFormModal() {
     nameInput.setAttribute('value', '');
     nameInput.setAttribute('placeholder', 'Enter project name');
     nameInput.setAttribute('autocomplete', 'off');
+    nameInput.setAttribute('data-project-input', 'id')
     nameInput.required = true;
     // append to DOM
     modalDiv.appendChild(projectForm);
