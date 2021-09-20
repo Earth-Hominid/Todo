@@ -63,5 +63,9 @@ const addProjectLogicModule = (() => {
     });
   })();
 
-  function clearElement(element) {}
+  function clearElement(element) {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
 })();
