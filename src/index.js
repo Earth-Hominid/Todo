@@ -48,58 +48,13 @@ const projectForm = (() => {
   }
 })();
 
-const projectModule = (() => {
-  const projectContainer = document.querySelector('[data-pojects]');
-  const projectForm = document.querySelector('[data-project-form]');
-  const projectInput = document.querySelector('[data-project-input]');
-
-  let projects = [];
-
-  projectForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const projectName = projectForm.value;
-    if (projectName == null || projectName == '') return;
-    const project = createProject(projectName);
-    // clear project input once project name is typed
-    projectForm.value = null;
-    projects.push(project);
-    renderProjectList();
-  });
-
-  function createProject(name) {
-    return { id: Date.now().toString(), name: name, tasks: [] };
+const addProjectLogicModule = (() => {
+  function addProject() {
+    const projectList = document.getElementById('project_list');
+    const projectInput = document.getElementById('project_title_input');
+    const createProjectTitle = document.createElement('li');
+    createProjectTitle.setAttribute('id', projectInput.value);
+    createProjectTitle.textContent = projectInput.value;
+    projectList.appendChild(createProjectTitle);
   }
-
-  function renderProject() {
-    clear(projectContainer);
-
-    projects.forEach((project) => {
-      //  create project
-      const projectListItem = document.createElement('li');
-      // set attributes
-      projectListItem.classList.add('project-name');
-      projectListItem.dataset.projectId = project.id;
-      projectListItem.innerText = project.name;
-      // append to the DOM
-      projectContainer.appendChild(projectListItem);
-    });
-  }
-
-  function clear(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
-  }
-
-  renderProject();
 })();
-
-document.querySelector('form').addEventListener('submit', (e) => {
-  const formData = new FormData(e.target);
-  // Now you can use formData.get('foo'), for example.
-  // Don't forget e.preventDefault() if you want to stop normal form .submission
-});
-
-const form = document.querySelector('form');
-const data = Object.fromEntries(new FormData(form).entries());
-console.log(data);
