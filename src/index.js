@@ -59,13 +59,17 @@ const addProjectLogicModule = (() => {
     { id: 2, name: 'example2' },
   ];
 
-  newProjectForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  function setProjectName() {
     const projectName = newProjectInput.value;
     if (projectName == null || projectName === '') return;
     const project = createProject(projectName);
     newProjectInput.value = null;
     projects.push(project);
+  }
+
+  newProjectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    setProjectName();
     renderProjectName();
   });
 

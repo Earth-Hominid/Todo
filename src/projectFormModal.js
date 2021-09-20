@@ -61,6 +61,7 @@ function renderProjectFormModal() {
     addButton.classList = 'add_form_button';
     addButton.textContent = 'Add';
     addButton.setAttribute('id', 'add_project');
+    addButton.setAttribute('data-project-form', '');
     cancelButton.setAttribute('type', 'button');
     cancelButton.classList = 'cancel_form_button';
     cancelButton.setAttribute('data-close-button', '');
