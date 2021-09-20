@@ -51,14 +51,17 @@ const projectForm = (() => {
 
 const addProjectLogicModule = (() => {
   const projectList = document.querySelector('[data-project-list]');
-  let lists = ['example1', 'example2'];
+  let lists = [
+    { id: 1, name: 'example1' },
+    { id: 2, name: 'example2' },
+  ];
 
   const renderProjectName = (() => {
     clearElement(projectList);
     lists.forEach((list) => {
       const listElement = document.createElement('li');
       listElement.classList.add('list-name');
-      listElement.innerText = list;
+      listElement.innerText = list.name;
       projectList.appendChild(listElement);
     });
   })();
