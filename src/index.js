@@ -56,13 +56,22 @@ const addProjectLogicModule = (() => {
   const newProjectForm = document.querySelector('[data-project-form]');
   const newProjectInput = document.querySelector('[data-project-input]');
   const addProjectButton = document.getElementById('add_project');
-  const LOCAL_STORAGE_LIST_KEY = 'task.projects';
-  const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
+  const LOCAL_STORAGE_PROJECT_KEY = 'task.projects'; // name spacing to prevent overwriting
+  const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId'; // returns null if nothing is selected
 
-  let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+  let projects =
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
   let selectedProjectId = localStorage.getItem(
     LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY
   );
+
+  // add event listener to a dynamically generated element by adding it to the div container, thus, hitting all of the list items.
+  projectList.addEventListener('click', (e) => {
+    if (e.target.tagName.toLowerCase() === 'li') {
+      selectedProjectId = e.target.dataset.projectId;
+      saveAndRenderProject();
+    }
+  });
 
   function setProjectName() {
     const projectName = newProjectInput.value;
@@ -111,7 +120,7 @@ const addProjectLogicModule = (() => {
   };
 
   const saveAndRenderProject = () => {
-    save();
+    saveProject();
     renderProjectName();
   };
 
