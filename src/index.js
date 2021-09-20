@@ -59,7 +59,21 @@ const addProjectLogicModule = (() => {
     { id: 2, name: 'example2' },
   ];
 
-  const renderProjectName = (() => {
+  newProjectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const projectName = newProjectInput.value;
+    if (projectName == null || projectName === '') return;
+    const project = createProject(projectName);
+    newProjectInput.value = null;
+    projects.push(project);
+    renderProjectName();
+  });
+
+  function createProject(name) {
+    return { id: Date.now().toString(), name: name, tasks: [] };
+  }
+
+  const renderProjectName = () => {
     clearElement(projectList);
     projects.forEach((project) => {
       const listElement = document.createElement('li');
@@ -68,11 +82,13 @@ const addProjectLogicModule = (() => {
       listElement.innerText = project.name;
       projectList.appendChild(listElement);
     });
-  })();
+  };
 
   function clearElement(element) {
     while (element.firstChild) {
       element.removeChild(element.firstChild);
     }
   }
+
+  renderProjectName();
 })();
