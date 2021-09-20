@@ -13,6 +13,20 @@ const projectForm = (() => {
   const openProjectButton = document.querySelectorAll('[data-modal-target]');
   const closeProjectButton = document.querySelectorAll('[data-close-button]');
   const overlay = document.getElementById('overlay');
+  const addProjectButton = document.getElementById('add_project');
+
+  function working() {
+    const projectList = document.getElementById('project_list');
+    const projectInput = document.getElementById('project_title_input');
+
+    // dynamically create project title which appends to project div
+    const createProjectTitle = document.createElement('li');
+    createProjectTitle.setAttribute('id', projectInput.value);
+    createProjectTitle.textContent = projectInput.value;
+    projectList.appendChild(createProjectTitle);
+  }
+
+  addProjectButton.addEventListener('click', working);
 
   openProjectButton.forEach((button) => {
     button.addEventListener('click', () => {
@@ -48,13 +62,23 @@ const projectForm = (() => {
   }
 })();
 
-const addProjectLogicModule = (() => {
-  function addProject() {
-    const projectList = document.getElementById('project_list');
-    const projectInput = document.getElementById('project_title_input');
-    const createProjectTitle = document.createElement('li');
-    createProjectTitle.setAttribute('id', projectInput.value);
-    createProjectTitle.textContent = projectInput.value;
-    projectList.appendChild(createProjectTitle);
-  }
-})();
+// const addProjectLogicModule = (() => {
+const addProjectButton = document.getElementById('add_project');
+
+function addProject() {
+  const projectList = document.getElementById('project_list');
+  const projectInput = document.getElementById('project_title_input');
+
+  // dynamically create project title which appends to project div
+  const createProjectTitle = document.createElement('li');
+  createProjectTitle.setAttribute('id', projectInput.value);
+  createProjectTitle.textContent = projectInput.value;
+  projectList.appendChild(createProjectTitle);
+}
+
+function working() {
+  console.log('working');
+}
+
+addProjectButton.addEventListener('onclick', working);
+// })();
