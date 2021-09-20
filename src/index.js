@@ -9,6 +9,7 @@ document.body.appendChild(renderLeftMenu());
 document.body.appendChild(renderProjectFormModal());
 document.body.appendChild(renderOverlay());
 
+// IIFE which generates a form modal popup when the add project button is clicked
 const projectForm = (() => {
   const openProjectButton = document.querySelectorAll('[data-modal-target]');
   const closeProjectButton = document.querySelectorAll('[data-close-button]');
@@ -49,16 +50,19 @@ const projectForm = (() => {
   }
 })();
 
+// IIFE which handles the logic when a new project name is entered by the user
 const addProjectLogicModule = (() => {
   const projectList = document.querySelector('[data-project-list]');
   const newProjectForm = document.querySelector('[data-project-form]');
   const newProjectInput = document.querySelector('[data-project-input]');
   const addProjectButton = document.getElementById('add_project');
+  const LOCAL_STORAGE_LIST_KEY = 'task.projects';
+  const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
 
-  let projects = [
-    { id: 1, name: 'example1' },
-    { id: 2, name: 'example2' },
-  ];
+  let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+  let selectedProjectId = localStorage.getItem(
+    LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY
+  );
 
   function setProjectName() {
     const projectName = newProjectInput.value;
@@ -84,6 +88,15 @@ const addProjectLogicModule = (() => {
     return { id: Date.now().toString(), name: name, tasks: [] };
   }
 
+  const saveProject = () => {
+    localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects));
+    localStorage.setItem(
+      LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY,
+      selectedProjectId
+    );
+  };
+
+  // Function first clears project list and then renders.
   const renderProjectName = () => {
     clearElement(projectList);
     projects.forEach((project) => {
@@ -91,8 +104,15 @@ const addProjectLogicModule = (() => {
       listElement.classList.add('list-name');
       listElement.dataset.projectId = project.id;
       listElement.innerText = project.name;
+      if (project.id === selectedProjectId)
+        listElement.classList.add('active-project');
       projectList.appendChild(listElement);
     });
+  };
+
+  const saveAndRenderProject = () => {
+    save();
+    renderProjectName();
   };
 
   function clearElement(element) {
