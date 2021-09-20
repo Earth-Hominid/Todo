@@ -53,6 +53,7 @@ const addProjectLogicModule = (() => {
   const projectList = document.querySelector('[data-project-list]');
   const newProjectForm = document.querySelector('[data-project-form]');
   const newProjectInput = document.querySelector('[data-project-input]');
+  const addProjectButton = document.getElementById('add_project');
 
   let projects = [
     { id: 1, name: 'example1' },
@@ -68,6 +69,12 @@ const addProjectLogicModule = (() => {
   }
 
   newProjectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    setProjectName();
+    renderProjectName();
+  });
+
+  addProjectButton.addEventListener('click', (e) => {
     e.preventDefault();
     setProjectName();
     renderProjectName();
