@@ -1,4 +1,4 @@
-import renderProjectContainer from './projecCreation';
+import renderProjectContainer from './projectCreation';
 
 function renderLeftMenu() {
   // create elements
