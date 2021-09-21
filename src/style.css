@@ -10,6 +10,7 @@ body {
   color: #202020;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.4);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 #logo {
@@ -335,6 +336,24 @@ body {
   padding-inline-start: 40px;
 }
 
-.content {
+.main_content {
   margin-left: 267px;
+}
+
+#editor {
+  min-width: 325px;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  vertical-align: top;
+  padding-bottom: 84px;
+}
+
+.project_view {
+  --view-header-height: 72px;
+  margin-bottom: 38px;
+  padding-bottom: 2px;
+  outline: none !important;
+  display: block;
 }

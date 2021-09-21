@@ -7,7 +7,7 @@ import renderMainTaskContentHolder from './mainContent';
 
 document.body.appendChild(renderNavigation());
 document.body.appendChild(renderLeftMenu());
-document.body.appendChild(renderMainTaskContentHolder);
+document.body.appendChild(renderMainTaskContentHolder());
 document.body.appendChild(renderProjectFormModal());
 document.body.appendChild(renderOverlay());
 

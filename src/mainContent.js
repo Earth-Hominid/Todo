@@ -1,7 +1,5 @@
 function renderMainTaskContentHolder() {
-  // create elements
   const mainTaskContentHolder = document.createElement('main');
-  // set attributes, images, and classes
   mainTaskContentHolder.classList = 'main_content';
   mainTaskContentHolder.setAttribute('id', 'content');
   mainTaskContentHolder.setAttribute('tabindex', '-1');
@@ -11,8 +9,18 @@ function renderMainTaskContentHolder() {
     'Main Navigation: contains Tasks'
   );
 
-  const rendermainTaskContentHolder = (() => {
-    mainTaskContentHolder.appendChild();
+  const renderMainTaskContentHolder = (() => {
+    const createEditTaskContentHolder = document.createElement('div');
+    createEditTaskContentHolder.setAttribute('id', 'editor');
+    mainTaskContentHolder.appendChild(renderMainTaskContentHolder);
+
+    const createProjectEditor = document.createElement('div');
+    createProjectEditor.classList = 'project_view';
+    renderMainTaskContentHolder.appendChild(createProjectEditor);
+
+    const projectHeader = document.createElement('header');
+    projectHeader.classList = 'project_view_header';
+    createProjectEditor.appendChild(projectHeader);
   })();
 
   const taskGUI = (() => {})();
