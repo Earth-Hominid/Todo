@@ -9,21 +9,19 @@ function renderMainTaskContentHolder() {
     'Main Navigation: contains Tasks'
   );
 
-  const renderMainTaskContentHolder = (() => {
+  const createTaskGUI = (() => {
     const createEditTaskContentHolder = document.createElement('div');
     createEditTaskContentHolder.setAttribute('id', 'editor');
-    mainTaskContentHolder.appendChild(renderMainTaskContentHolder);
+    mainTaskContentHolder.appendChild(createEditTaskContentHolder);
 
     const createProjectEditor = document.createElement('div');
     createProjectEditor.classList = 'project_view';
-    renderMainTaskContentHolder.appendChild(createProjectEditor);
+    createEditTaskContentHolder.appendChild(createProjectEditor);
 
     const projectHeader = document.createElement('header');
     projectHeader.classList = 'project_view_header';
     createProjectEditor.appendChild(projectHeader);
   })();
-
-  const taskGUI = (() => {})();
 
   return mainTaskContentHolder;
 }
