@@ -3,9 +3,11 @@ import renderNavigation from './nav';
 import renderLeftMenu from './leftMenu';
 import renderProjectFormModal from './projectFormModal';
 import renderOverlay from './overlay';
+import renderMainTaskContentHolder from './mainContent';
 
 document.body.appendChild(renderNavigation());
 document.body.appendChild(renderLeftMenu());
+document.body.appendChild(renderMainTaskContentHolder);
 document.body.appendChild(renderProjectFormModal());
 document.body.appendChild(renderOverlay());
 
@@ -14,7 +16,6 @@ const projectForm = (() => {
   const openProjectButton = document.querySelectorAll('[data-modal-target]');
   const closeProjectButton = document.querySelectorAll('[data-close-button]');
   const overlay = document.getElementById('overlay');
-  const addProjectButton = document.getElementById('add_project');
 
   openProjectButton.forEach((button) => {
     button.addEventListener('click', () => {
