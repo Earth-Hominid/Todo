@@ -357,3 +357,43 @@ body {
   outline: none !important;
   display: block;
 }
+
+.project_view_header {
+  display: flex;
+  background-color: #fff;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-left: 55px;
+  padding-right: 55px;
+  padding-top: 36px;
+  outline: none !important;
+}
+
+.header_content {
+  display: flex;
+  width: 100%;
+  padding-bottom: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.3s;
+  align-items: flex-start;
+  word-break: break-word;
+}
+
+.project_name_content {
+  max-width: calc(100% - 140px);
+  margin: -2px 0 0 -4px;
+  padding: 2px 4px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  outline: none !important;
+}

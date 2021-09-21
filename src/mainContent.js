@@ -21,6 +21,15 @@ function renderMainTaskContentHolder() {
     const projectHeader = document.createElement('header');
     projectHeader.classList = 'project_view_header';
     createProjectEditor.appendChild(projectHeader);
+
+    const projectHeaderViewContent = document.createElement('div');
+    projectHeaderViewContent.classList = 'header_content';
+    projectHeader.appendChild(projectHeaderViewContent);
+
+    const header = document.createElement('h1');
+    header.classList = 'project_name_content';
+    header.setAttribute('tabindex', '0');
+    projectHeaderViewContent.appendChild(header);
   })();
 
   return mainTaskContentHolder;
