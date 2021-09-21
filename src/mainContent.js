@@ -15,13 +15,14 @@ function renderMainTaskContentHolder() {
   );
 
   const createTaskGUI = (() => {
-    const createEditTaskContentHolder = document.createElement('div');
-    createEditTaskContentHolder.setAttribute('id', 'editor');
-    mainTaskContentHolder.appendChild(createEditTaskContentHolder);
+    const editTaskContentHolder = document.createElement('div');
+    editTaskContentHolder.setAttribute('id', 'editor');
+    editTaskContentHolder.setAttribute('data-project-edit-holder', 'id');
+    mainTaskContentHolder.appendChild(editTaskContentHolder);
 
     const projectEditor = document.createElement('div');
     projectEditor.classList = 'project_view';
-    createEditTaskContentHolder.appendChild(projectEditor);
+    editTaskContentHolder.appendChild(projectEditor);
 
     const projectHeader = document.createElement('header');
     projectHeader.classList = 'project_view_header';
@@ -57,13 +58,13 @@ function renderMainTaskContentHolder() {
 
     const taskListEditor = document.createElement('div');
     taskListEditor.classList = 'task_list_editor';
-    taskListEditor.setAttribute('data-project-view', '');
+    taskListEditor.setAttribute('data-project-tasks', '');
     taskListContentHolder.appendChild(taskListEditor);
 
-    const projectTaskList = document.createElement('ul');
-    projectTaskList.classList = 'project_section_list';
-    projectTaskList.setAttribute('data-project-list', '');
-    taskListEditor.appendChild(projectTaskList);
+    // const projectTaskList = document.createElement('ul');
+    // projectTaskList.classList = 'project_section_list';
+    // projectTaskList.setAttribute('data-project-list', '');
+    // taskListEditor.appendChild(projectTaskList);
   })();
 
   return mainTaskContentHolder;

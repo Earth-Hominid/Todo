@@ -62,6 +62,11 @@ const addProjectLogicModule = (() => {
   const deleteProjectButton = document.querySelector(
     '[data-delete-project-button]'
   );
+  const projectEditContainer = document.querySelector(
+    '[data-project-edit-holder]'
+  );
+  const projectNameElement = document.querySelector('[data-project-name]');
+  const projectTasksContainer = document.querySelector('[data-project-tasks]');
 
   let projects =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
