@@ -206,6 +206,7 @@ body {
   bottom: 0;
   background-color: rgba(138, 108, 108, 0.5);
   pointer-events: none;
+  z-index: 9;
 }
 
 #overlay.active {
@@ -383,6 +384,13 @@ body {
   word-break: break-word;
 }
 
+.header_actions {
+  display: flex;
+  align-items: center;
+  color: #333;
+  margin-left: auto;
+}
+
 .project_name_content {
   max-width: calc(100% - 140px);
   margin: -2px 0 0 -4px;
@@ -396,4 +404,36 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   outline: none !important;
+}
+
+.task_list_editor {
+  padding-left: 55px;
+  padding-right: 55px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.project_delete_button {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  text-decoration: none;
+  border-radius: 3px;
+  outline: none !important;
+  cursor: pointer;
+  font-family: inherit;
+  overflow: hidden;
+  border: 1px;
+  background-color: white;
+}
+
+.project_delete_button:hover {
+  background-color: #fafafa;
+}
+
+#delete_icon {
+  width: 24px;
+  height: 24px;
 }

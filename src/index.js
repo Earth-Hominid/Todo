@@ -59,6 +59,9 @@ const addProjectLogicModule = (() => {
   const addProjectButton = document.getElementById('add_project');
   const LOCAL_STORAGE_PROJECT_KEY = 'task.projects'; // name spacing to prevent overwriting
   const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId'; // returns null if nothing is selected
+  const deleteProjectButton = document.querySelector(
+    '[data-delete-project-button]'
+  );
 
   let projects =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
@@ -81,6 +84,12 @@ const addProjectLogicModule = (() => {
     newProjectInput.value = null;
     projects.push(project);
   }
+
+  deleteProjectButton.addEventListener('click', (e) => {
+    projects = projects.filter((project) => project.id !== selectedProjectId);
+    selectedProjectId = null;
+    saveAndRenderProject();
+  });
 
   newProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
