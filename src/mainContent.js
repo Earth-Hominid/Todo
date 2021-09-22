@@ -122,7 +122,7 @@ function renderMainTaskContentHolder() {
     const taskDescriptionInput = document.createElement('textarea');
     taskDescriptionInput.classList = 'task_description';
     taskDescriptionInput.setAttribute('placeholder', 'Description');
-    taskContent.appendChild(taskDescriptionInput);
+    taskEditorInputContainer.appendChild(taskDescriptionInput);
   })();
 
   return mainTaskContentHolder;

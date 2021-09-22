@@ -352,7 +352,7 @@ body {
 
 .project_list {
   display: block;
-  list-style-type: disc;
+  list-style-type: none;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
@@ -569,6 +569,7 @@ body {
   padding: 10px 10px 0;
   cursor: text;
   --view-header-height: 72px;
+  height: 17vh;
 }
 
 .task_input_container {
