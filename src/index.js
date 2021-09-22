@@ -62,11 +62,13 @@ const addProjectLogicModule = (() => {
   const deleteProjectButton = document.querySelector(
     '[data-delete-project-button]'
   );
+
+  // Task List Elements
   const projectEditContainer = document.querySelector(
     '[data-project-edit-holder]'
   );
   const projectNameElement = document.querySelector('[data-project-name]');
-  const projectTasksContainer = document.querySelector('[data-project-tasks]');
+  const tasksContainer = document.querySelector('[data-tasks]');
 
   let projects =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
@@ -120,9 +122,7 @@ const addProjectLogicModule = (() => {
     );
   };
 
-  // Function first clears project list and then renders.
-  const renderProjectName = () => {
-    clearElement(projectList);
+  const renderProjects = () => {
     projects.forEach((project) => {
       const listElement = document.createElement('li');
       listElement.classList.add('list-name');
@@ -132,6 +132,92 @@ const addProjectLogicModule = (() => {
         listElement.classList.add('active-project');
       projectList.appendChild(listElement);
     });
+  };
+
+  const projectContainerToggle = () => {
+    const selectedProject = projects.find(
+      (project) => project.id === selectedProjectId
+    );
+    return selectedProjectId == null
+      ? (projectEditContainer.style = 'none')
+      : ((projectEditContainer.style = ''),
+        (projectNameElement.innerText = selectedProject.name));
+  };
+
+  // Function first clears project list and then renders project name.
+  const renderProjectName = () => {
+    clearElement(projectList);
+    renderProjects();
+    projectContainerToggle();
+    clearElement(tasksContainer);
+    renderTasks(selectedProject);
+  };
+
+  const renderTasks = (selectedProject) => {
+    selectedProject.tasks.forEach((task) => {
+      const projectTaskList = document.createElement('ul');
+      const taskElement = document.createElement('li');
+      taskElement.classList.add('task-name');
+      taskElement.dataset.taskId = task.id;
+      taskElement.innerText = task.name;
+      projectTaskList.appendChild(taskElement);
+    });
+  };
+
+  const renderTaskHolder = () => {
+    const projectTaskList = document.createElement('ul');
+    projectTaskList.classList = 'items';
+    projectTaskList.setAttribute('data-project-list', '');
+    taskListEditor.appendChild(projectTaskList); // taskListEditor is on the main index page.
+
+    const taskLine = document.createElement('li');
+    taskLine.classList = 'task_list_item';
+    taskLine.setAttribute('data-task-line', '');
+    taskListEditor.appendChild(taskLine);
+
+    // task holder and task button holder
+    const taskRoot = document.createElement('div');
+    taskRoot.setAttribute('tabindex', '0');
+    taskRoot.classList('task_list_item_body');
+    taskLine.appendChild(taskRoot);
+
+    const taskCheckBoxButton = document.createElement('button');
+    taskCheckBoxButton.setAttribute('role', 'checkbox');
+    taskCheckBoxButton.setAttribute('type', 'button');
+    taskCheckBoxButton.classList('task_checkbox');
+    taskCheckBoxButton.setAttribute('data-checkbox', 'id');
+    taskRoot.appendChild(taskCheckBoxButton);
+
+    const taskCheckBoxCircle = document.createElement('div');
+    taskCheckBoxCircle.classList = 'task_checkbox_circle';
+    taskCheckBoxButton.appendChild('taskCheckBoxCircle');
+    taskCheckBoxButton.appendChild(taskCheckBoxCircle);
+
+    // circle svg goes here
+
+    const taskListItemContent = document.createElement('div');
+    taskListItemContent = 'task_list_item';
+
+    const taskHolder = document.createElement('div');
+    const taskTitle = document.createElement('div');
+    const taskDescription = document.createElement('div');
+
+    taskHolder.classList = 'task_item';
+    taskTitle.classList = 'task_title';
+    taskTitle.setAttribute('data-task-title', 'id');
+    taskDescription.classList = 'task_description';
+    taskDescription.classList = 'data-task-description';
+  };
+
+  const renderTaskTemplate = () => {
+    const taskHolder = document.createElement('div');
+    const taskInput = document.createElement('input');
+    const labelElement = document.createElement('label');
+    const checkboxSpan = document.createElement('span');
+
+    taskHolder.classList = 'task-holder';
+    taskInput.setAttribute('type', 'checkbox');
+    checkBoxSpan.classList = 'task-checkbox';
   };
 
   const saveAndRenderProject = () => {

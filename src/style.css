@@ -437,3 +437,85 @@ body {
   width: 24px;
   height: 24px;
 }
+
+.task_item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+  align-items: stretch;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+
+.task_title {
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 21px;
+  word-wrap: break-word;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task_description {
+  flex-basis: 100%;
+  font-size: 12px;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: grey;
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style: none;
+}
+
+.task_list_item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.task_list_item_body {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+
+.task_checkbox {
+  margin: 8px 6px 0 -3px;
+  z-index: 1;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.task_checkbox_circle {
+  background-color: transparent;
+  border-color: grey;
+  color: grey;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #dcdcdc;
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}

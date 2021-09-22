@@ -58,13 +58,8 @@ function renderMainTaskContentHolder() {
 
     const taskListEditor = document.createElement('div');
     taskListEditor.classList = 'task_list_editor';
-    taskListEditor.setAttribute('data-project-tasks', '');
+    taskListEditor.setAttribute('data-tasks', '');
     taskListContentHolder.appendChild(taskListEditor);
-
-    // const projectTaskList = document.createElement('ul');
-    // projectTaskList.classList = 'project_section_list';
-    // projectTaskList.setAttribute('data-project-list', '');
-    // taskListEditor.appendChild(projectTaskList);
   })();
 
   return mainTaskContentHolder;
