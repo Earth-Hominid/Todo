@@ -553,3 +553,41 @@ body {
   overflow-x: hidden;
   margin-bottom: 10px;
 }
+
+.task_content {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 21px;
+  border: none;
+  outline: none;
+  word-break: break-word;
+}
+
+.task_name {
+  outline: none;
+  user-select: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  -webkit-user-modify: read-write-plaintext-only;
+  text-align: initial;
+  flex: 1;
+  font-weight: 500;
+}
+
+.task_description {
+  height: 36px !important;
+  transition-property: box-shadow, border;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  border: none;
+  margin: 8px 0 0;
+  padding: 1px;
+  width: 100%;
+  font-size: 13px;
+  line-height: 18px;
+  overflow: hidden;
+  outline: 0;
+  min-height: 20px;
+  user-select: text !important;
+}

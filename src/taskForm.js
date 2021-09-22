@@ -15,15 +15,24 @@ function renderTaskForm() {
 
     const taskEditorInputContainer = document.createElement('div');
     taskEditorInputContainer.classList = 'task_input_container';
+    taskEditorArea.appendChild(taskEditorInputContainer);
 
+    const taskContent = docoment.createElement('div');
+    taskContent.classList = 'task_content';
+    taskEditorInputContainer.appendChild(taskContent);
+
+    // Create task name input and description text area
     const taskNameInput = document.createElement('input');
-    const taskDescriptionInput = document.createElement('input');
+    const taskDescriptionInput = document.createElement('textarea');
 
     taskNameInput.classList = 'task_name';
     taskDescriptionInput.classList = 'task_description';
-    taskEditorInputContainer.appendChild(taskNameInput);
-    taskEditorInputContainer.appendChild(taskDescriptionInput);
+    taskDescriptionInput.setAttribute('placeholder', 'Description');
+    taskContent.appendChild(taskNameInput);
+    taskContent.appendChild(taskDescriptionInput);
   })();
 
   const renderTaskFormButtons = (() => {})();
+
+  return taskFormLineContainer;
 }
