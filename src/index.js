@@ -4,6 +4,7 @@ import renderLeftMenu from './leftMenu';
 import renderProjectFormModal from './projectFormModal';
 import renderOverlay from './overlay';
 import renderMainTaskContentHolder from './mainContent';
+import renderTaskForm from './taskForm';
 
 document.body.appendChild(renderNavigation());
 document.body.appendChild(renderLeftMenu());
@@ -62,7 +63,6 @@ const addProjectLogicModule = (() => {
   const deleteProjectButton = document.querySelector(
     '[data-delete-project-button]'
   );
-
   // Task List Elements
   const projectEditContainer = document.querySelector(
     '[data-project-edit-holder]'
@@ -150,10 +150,10 @@ const addProjectLogicModule = (() => {
     renderProjects();
     projectContainerToggle();
     clearElement(tasksContainer);
-    renderTasks(selectedProject);
+    // renderTasks(selectedProject);
   };
 
-  const renderTasks = (selectedProject) => {
+  /*const renderTasks = (selectedProject) => {
     selectedProject.tasks.forEach((task) => {
       const projectTaskList = document.createElement('ul');
       const taskElement = document.createElement('li');
@@ -209,7 +209,7 @@ const addProjectLogicModule = (() => {
     taskDescription.classList = 'data-task-description';
   };
 
-  const renderTaskTemplate = () => {
+  /*const renderTaskTemplate = () => {
     const taskHolder = document.createElement('div');
     const taskInput = document.createElement('input');
     const labelElement = document.createElement('label');
@@ -218,7 +218,7 @@ const addProjectLogicModule = (() => {
     taskHolder.classList = 'task-holder';
     taskInput.setAttribute('type', 'checkbox');
     checkBoxSpan.classList = 'task-checkbox';
-  };
+  }; */
 
   const saveAndRenderProject = () => {
     saveProject();

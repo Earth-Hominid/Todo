@@ -2,7 +2,7 @@ function renderTaskForm() {
   const taskFormLineContainer = document.createElement('li');
   taskFormLineContainer = document.classList = 'task_manager';
 
-  // IIFE to create
+  // IIFE to create task form
   const renderTaskForm = (() => {
     const taskForm = document.createElement('form');
     taskForm = document.setAttribute('id', 'task_form');
@@ -36,3 +36,5 @@ function renderTaskForm() {
 
   return taskFormLineContainer;
 }
+
+export default renderTaskForm;
