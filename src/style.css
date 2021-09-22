@@ -519,3 +519,37 @@ body {
   cursor: pointer;
   user-select: none;
 }
+
+.task_manager {
+  padding: 4px 0 !important;
+  background: none !important;
+  margin-bottom: 9px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  list-style-type: none;
+  list-style: none;
+}
+
+.task_form {
+  padding: 0;
+  margin: 0;
+  display: block;
+  margin: auto auto auto 0;
+  color: #202020;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.task_editor_area {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 10px 0;
+  cursor: text;
+}
+
+.task_input_container {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 10px;
+}
