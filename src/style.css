@@ -1,3 +1,7 @@
+html {
+  background-color: #fafafa;
+}
+
 *,
 *::before,
 *::after {
@@ -113,7 +117,8 @@ body {
   background-color: #fff;
   height: calc(100vh - 44px);
   padding-top: 30px;
-  padding-left: 35px;
+  padding-left: 25px;
+  padding-right: 15px;
   position: fixed;
   left: 0;
   transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -329,7 +334,7 @@ body {
   justify-content: center;
   grid-gap: 12px;
   gap: 12px;
-  line-height: 18px;
+  line-height: 24px;
   padding: 6px 10px;
   height: 32px;
   width: 100%;
@@ -343,6 +348,8 @@ body {
   border-radius: 5px;
   white-space: nowrap;
   box-sizing: border-box;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .add_project:hover {
@@ -351,17 +358,30 @@ body {
 }
 
 .project_list {
-  display: block;
-  list-style-type: none;
+  line-height: 35px;
+  list-style-type: circle;
   margin-block-start: 1em;
   margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
   padding-inline-start: 40px;
+  margin-bottom: 1em;
+}
+
+.list-name {
+  cursor: pointer;
 }
 
 .main_content {
   margin-left: 267px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 380px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  outline: 0;
+  transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #fafafa;
 }
 
 #editor {
@@ -393,6 +413,8 @@ body {
   padding-right: 55px;
   padding-top: 36px;
   outline: none !important;
+  margin-top: 10px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .header_content {
@@ -407,6 +429,16 @@ body {
   word-break: break-word;
 }
 
+.delete_project {
+  display: flex;
+  padding: 7px;
+  display: flex;
+  border-radius: 5px;
+}
+
+.delete_project:hover {
+  background-color: #fafafa;
+}
 .header_actions {
   display: flex;
   align-items: center;
@@ -441,15 +473,12 @@ body {
 .project_delete_button {
   display: flex;
   align-items: center;
-  margin-left: 16px;
   text-decoration: none;
-  border-radius: 3px;
   outline: none !important;
   cursor: pointer;
-  font-family: inherit;
   overflow: hidden;
   border: 1px;
-  background-color: white;
+  background-color: inherit;
 }
 
 .project_delete_button:hover {
@@ -457,8 +486,23 @@ body {
 }
 
 #delete_icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
+}
+
+.header_action_text {
+  margin-left: 5px;
+  padding-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  text-size-adjust: 100%;
+  font-family: Roboto;
+  color: rgb(122, 128, 252);
+  cursor: pointer;
+}
+
+.header_action_text:hover {
+  background-color: #fafafa;
 }
 
 .task_item {
@@ -658,7 +702,7 @@ body {
   border-left: 0.1px solid transparent;
 }
 
-.contnet {
+.content {
   outline: none;
   user-select: text;
   white-space: pre-wrap;

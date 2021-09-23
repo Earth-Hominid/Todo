@@ -17,6 +17,8 @@ const projectForm = (() => {
   const openProjectButton = document.querySelectorAll('[data-modal-target]');
   const closeProjectButton = document.querySelectorAll('[data-close-button]');
   const overlay = document.getElementById('overlay');
+  const newProjectInput = document.querySelector('[data-project-input]');
+  const addProjectButton = document.querySelector('[data-project-form]');
 
   openProjectButton.forEach((button) => {
     button.addEventListener('click', () => {
@@ -139,8 +141,8 @@ const addProjectLogicModule = (() => {
       (project) => project.id === selectedProjectId
     );
     return selectedProjectId == null
-      ? (projectEditContainer.style = 'none')
-      : ((projectEditContainer.style = ''),
+      ? (projectEditContainer.style.display = 'none')
+      : ((projectEditContainer.style.display = ''),
         (projectNameElement.innerText = selectedProject.name));
   };
 
@@ -149,7 +151,7 @@ const addProjectLogicModule = (() => {
     clearElement(projectList);
     renderProjects();
     projectContainerToggle();
-    clearElement(tasksContainer);
+    // clearElement(tasksContainer);
     // renderTasks(selectedProject);
   };
 
