@@ -1,5 +1,7 @@
 html {
-  background-color: #fafafa;
+  background-color: #e6e9f4;
+  font-family: Poppins-Regular;
+  color: #171725;
 }
 
 *,
@@ -8,7 +10,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: #37517e;
+  color: #171725;
 }
 
 body {
@@ -137,7 +139,7 @@ body {
 }
 
 #list_holder {
-  width: 15vw;
+  width: 19.591141396933562vw;
 }
 
 .close_button::before {
@@ -319,15 +321,16 @@ body {
 }
 
 .active-project {
-  font-weight: 700;
-  font-family: Roboto;
+  font-family: Poppins-Medium;
+  color: #0058ff;
+  background-color: #e6e9f4;
 }
 
 .add_project {
   transition-property: color, border-color, background-color;
   color: #fff;
-  background-color: rgb(122, 128, 252);
-  border-color: rgb(122, 128, 252);
+  background-color: #21d59b;
+  border-color: #21d59b;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -338,9 +341,10 @@ body {
   padding: 6px 10px;
   height: 32px;
   width: 100%;
+  min-width: 100px;
   font-weight: 500;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  font-family: Roboto;
+  font-family: Poppins-SemiBold;
   transition-property: box-shadow, border;
   transition-duration: 0.3s;
   transition-timing-function: ease;
@@ -359,15 +363,18 @@ body {
 
 .project_list {
   line-height: 35px;
-  list-style-type: circle;
+  list-style-type: none;
   margin-block-start: 1em;
   margin-block-end: 1em;
   padding-inline-start: 40px;
   margin-bottom: 1em;
+  width: 19.591141396933562vw;
+  height: 9.420289855072463vh;
 }
 
 .list-name {
   cursor: pointer;
+  font-family: Poppins-Medium;
 }
 
 .main_content {
@@ -381,7 +388,7 @@ body {
   position: relative;
   outline: 0;
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: #fafafa;
+  background-color: #e6e9f4;
 }
 
 #editor {
@@ -414,7 +421,7 @@ body {
   padding-top: 36px;
   outline: none !important;
   margin-top: 10px;
-  border-bottom: 1px solid #f0f0f0;
+  border-radius: 5px;
 }
 
 .header_content {
@@ -437,7 +444,7 @@ body {
 }
 
 .delete_project:hover {
-  background-color: #fafafa;
+  background-color: #e6e9f4;
 }
 .header_actions {
   display: flex;
@@ -451,8 +458,8 @@ body {
   margin: -2px 0 0 -4px;
   padding: 2px 4px;
   border-radius: 5px;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 1.5em;
+  font-family: Poppins-SemiBold;
   line-height: 25px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -482,27 +489,27 @@ body {
 }
 
 .project_delete_button:hover {
-  background-color: #fafafa;
+  background-color: #e6e9f4;
 }
 
 #delete_icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .header_action_text {
   margin-left: 5px;
   padding-top: 5px;
-  font-size: 16px;
+  font-size: 1.2em;
   font-weight: 600;
   text-size-adjust: 100%;
-  font-family: Roboto;
-  color: rgb(122, 128, 252);
+  font-family: Poppins-Regular;
+  color: #0058ff;
   cursor: pointer;
 }
 
 .header_action_text:hover {
-  background-color: #fafafa;
+  background-color: #e6e9f4;
 }
 
 .task_item {

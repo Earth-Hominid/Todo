@@ -18,7 +18,7 @@ function renderMainTaskContentHolder() {
   const createProjectHeader = (() => {
     const editTaskContentHolder = document.createElement('div');
     editTaskContentHolder.setAttribute('id', 'editor');
-    editTaskContentHolder.setAttribute('data-project-edit-holder', 'id');
+    editTaskContentHolder.setAttribute('data-project-edit-holder', '');
     mainTaskContentHolder.appendChild(editTaskContentHolder);
 
     const projectEditor = document.createElement('div');

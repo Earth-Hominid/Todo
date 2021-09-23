@@ -17,8 +17,6 @@ const projectForm = (() => {
   const openProjectButton = document.querySelectorAll('[data-modal-target]');
   const closeProjectButton = document.querySelectorAll('[data-close-button]');
   const overlay = document.getElementById('overlay');
-  const newProjectInput = document.querySelector('[data-project-input]');
-  const addProjectButton = document.querySelector('[data-project-form]');
 
   openProjectButton.forEach((button) => {
     button.addEventListener('click', () => {
@@ -151,11 +149,21 @@ const addProjectLogicModule = (() => {
     clearElement(projectList);
     renderProjects();
     projectContainerToggle();
-    // clearElement(tasksContainer);
-    // renderTasks(selectedProject);
   };
 
-  /*const renderTasks = (selectedProject) => {
+  const saveAndRenderProject = () => {
+    saveProject();
+    renderProjectName();
+  };
+
+  function clearElement(element) {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
+
+  const renderTasks = (() => {
+    /*const renderTasks = (selectedProject) => {
     selectedProject.tasks.forEach((task) => {
       const projectTaskList = document.createElement('ul');
       const taskElement = document.createElement('li');
@@ -164,9 +172,8 @@ const addProjectLogicModule = (() => {
       taskElement.innerText = task.name;
       projectTaskList.appendChild(taskElement);
     });
-  };
+  }; 
 
-  const renderTaskHolder = () => {
     const projectTaskList = document.createElement('ul');
     projectTaskList.classList = 'items';
     projectTaskList.setAttribute('data-project-list', '');
@@ -209,9 +216,8 @@ const addProjectLogicModule = (() => {
     taskTitle.setAttribute('data-task-title', 'id');
     taskDescription.classList = 'task_description';
     taskDescription.classList = 'data-task-description';
-  };
 
-  /*const renderTaskTemplate = () => {
+    /*const renderTaskTemplate = () => {
     const taskHolder = document.createElement('div');
     const taskInput = document.createElement('input');
     const labelElement = document.createElement('label');
@@ -221,17 +227,7 @@ const addProjectLogicModule = (() => {
     taskInput.setAttribute('type', 'checkbox');
     checkBoxSpan.classList = 'task-checkbox';
   }; */
-
-  const saveAndRenderProject = () => {
-    saveProject();
-    renderProjectName();
-  };
-
-  function clearElement(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
-  }
+  })();
 
   renderProjectName();
 })();
