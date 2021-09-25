@@ -222,6 +222,14 @@ body {
   pointer-events: all;
 }
 
+.project_title {
+  flex: 1;
+  display: flex;
+  text-align: left;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
 #project_title_input {
   width: calc(100% -12px);
   font-size: 14px;
@@ -359,6 +367,10 @@ body {
 .add_project:hover {
   background-color: rgb(102, 109, 250);
   border-color: rgb(102, 109, 250);
+}
+
+.project_header {
+  margin-top: 100px;
 }
 
 .project_list {

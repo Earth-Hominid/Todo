@@ -17,6 +17,7 @@ function renderProjectContainer() {
     projectHolder.id = 'project_header';
     projectTitle.classList = 'project_title';
     projectTitle.setAttribute('data-project-title', '');
+    projectTitle.innerText = 'Projects';
     projectTitle.id = 'project_title';
     projectList.classList = 'project_list';
     projectList.id = 'project_list';

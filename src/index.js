@@ -5,12 +5,16 @@ import renderProjectFormModal from './projectFormModal';
 import renderOverlay from './overlay';
 import renderMainTaskContentHolder from './mainContent';
 import renderTaskForm from './taskForm';
+import createLineforProjectList from './projectFeature';
 
-document.body.appendChild(renderNavigation());
-document.body.appendChild(renderLeftMenu());
-document.body.appendChild(renderMainTaskContentHolder());
-document.body.appendChild(renderProjectFormModal());
-document.body.appendChild(renderOverlay());
+// IIFE which renders the initial page
+const renderInitialpage = (() => {
+  document.body.appendChild(renderNavigation());
+  document.body.appendChild(renderLeftMenu());
+  document.body.appendChild(renderMainTaskContentHolder());
+  document.body.appendChild(renderProjectFormModal());
+  document.body.appendChild(renderOverlay());
+})();
 
 // IIFE which generates a form modal popup when the add project button is clicked
 const projectForm = (() => {
@@ -231,3 +235,6 @@ const addProjectLogicModule = (() => {
 
   renderProjectName();
 })();
+
+// IIFE which handles task logic
+const addTaskLogicModule = (() => {})();
