@@ -101,8 +101,6 @@ function renderMainTaskContentHolder() {
     taskContentDescription.innerText = 'This is a description';
 
     const addTaskButton = document.createElement('button');
-    const addTaskSpan = document.createElement('span');
-    const plusIcon = new Image();
 
     taskListHolder.classList = 'task_list_holder';
     projectTaskList.classList = 'task_items';
@@ -123,9 +121,6 @@ function renderMainTaskContentHolder() {
     addTaskButton.setAttribute('type', 'button');
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
-    addTaskSpan.classList = 'add_icon';
-    plusIcon.src = PlusIcon;
-    plusIcon.setAttribute('id', 'plus_icon');
 
     taskSectionElement.appendChild(taskListHolder);
     taskListHolder.appendChild(projectTaskList);
@@ -139,8 +134,6 @@ function renderMainTaskContentHolder() {
     taskListItemContentWrapper.appendChild(taskContentDescription);
 
     projectTaskAddButtonLine.appendChild(addTaskButton);
-    addTaskButton.appendChild(addTaskSpan);
-    addTaskSpan.appendChild(plusIcon);
   })();
 
   return mainTaskContentHolder;
