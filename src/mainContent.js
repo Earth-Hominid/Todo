@@ -73,6 +73,7 @@ function renderMainTaskContentHolder() {
     listViewEditor.classList = 'list_editor';
     taskAreaList.classList = 'section_list';
     taskSectionElement.classList = 'task_section';
+    taskLineElement.classList = 'task_line_element';
 
     projectEditor.appendChild(taskListBox); // appending add task area
     taskListBox.appendChild(listViewEditor);
@@ -84,26 +85,45 @@ function renderMainTaskContentHolder() {
     const projectTaskList = document.createElement('ul');
     const projectTaskListLine = document.createElement('li');
     const projectTaskAddButtonLine = document.createElement('li');
+    const taskListItemBody = document.createElement('div');
     const taskCheckBox = document.createElement('button');
+
+    const taskListItemContent = document.createElement('div');
+    const taskListItemContentWrapper = document.createElement('div');
+    const taskContentTitle = document.createElement('div');
+    const taskContentDescription = document.createElement('div');
+
+    taskListItemContent.classList = 'task_list_item_content';
+    taskListItemContentWrapper.classList = 'task_list_item_wrapper';
+    taskContentTitle.classList = 'task_content_title';
+    taskContentTitle.innerText = 'This is a task';
+    taskContentDescription.classList = 'task_content_description';
+    taskContentDescription.innerText = 'This is a description';
+
     const addTaskButton = document.createElement('button');
     const addTaskSpan = document.createElement('span');
     const plusIcon = new Image();
 
     taskListHolder.classList = 'task_list_holder';
     projectTaskList.classList = 'task_items';
-    projectTaskList.appendChild(projectTaskListLine);
-    projectTaskList.classList = 'task_list_item';
-    projectTaskList.setAttribute('data-task-item', '');
+
+    projectTaskListLine.classList = 'items';
+    projectTaskListLine.setAttribute('data-task-item', '');
+
+    taskListItemBody.classList = 'task_list_item_body';
+    taskListItemBody.setAttribute('role', 'button');
+    taskListItemBody.setAttribute('tabindex', '0');
+
     taskCheckBox.setAttribute('type', 'button');
     taskCheckBox.setAttribute('role', 'checkbox');
     taskCheckBox.setAttribute('aria-label', 'Mark task complete');
-    taskCheckBox.classList = 'task_checkbox';
+    taskCheckBox.classList = 'task_checkbox_button';
     taskCheckBox.setAttribute('tabindex', '0');
     projectTaskAddButtonLine.classList = 'task_actions';
     addTaskButton.setAttribute('type', 'button');
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
-    addTaskButton.classList = 'add_icon';
+    addTaskSpan.classList = 'add_icon';
     plusIcon.src = PlusIcon;
     plusIcon.setAttribute('id', 'plus_icon');
 
@@ -111,7 +131,13 @@ function renderMainTaskContentHolder() {
     taskListHolder.appendChild(projectTaskList);
     projectTaskList.appendChild(projectTaskListLine);
     projectTaskList.appendChild(projectTaskAddButtonLine);
-    projectTaskListLine.appendChild(taskCheckBox);
+    projectTaskListLine.appendChild(taskListItemBody);
+    taskListItemBody.appendChild(taskCheckBox); // can add cirlce to append here
+    taskListItemBody.appendChild(taskListItemContent);
+    taskListItemContent.appendChild(taskListItemContentWrapper);
+    taskListItemContentWrapper.appendChild(taskContentTitle);
+    taskListItemContentWrapper.appendChild(taskContentDescription);
+
     projectTaskAddButtonLine.appendChild(addTaskButton);
     addTaskButton.appendChild(addTaskSpan);
     addTaskSpan.appendChild(plusIcon);

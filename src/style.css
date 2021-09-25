@@ -728,3 +728,145 @@ body {
   overflow-wrap: break-word;
   -webkit-user-modify: read-write-plaintext-only;
 }
+
+/* */
+
+#listbox {
+  --view-header-height: 72px;
+}
+
+.list_editor {
+  padding-left: 55px;
+  padding-right: 55px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task_line_element {
+  position: relative;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.task_items {
+  margin-bottom: 0 !important;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border-bottom: 1px solid #f0f0f0;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.task_checkbox_button {
+  margin: 8px 6px 0 -3px;
+  z-index: 1;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.task_list_item_content {
+  flex: 1;
+  padding: 8px 0;
+  margin-right: 30px;
+  display: block;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+
+.task_list_item_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+
+.task_content_title {
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 21px;
+  word-wrap: break-word;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task_content_description {
+  flex-basis: 100%;
+  font-size: 12px;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: grey;
+  outline: none !important;
+}
+
+.task_actions {
+  padding: 0 20px 0 3px;
+  color: #555;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.task_add_button {
+  color: grey !important;
+  text-decoration: none;
+  text-align: left;
+  width: 100%;
+  margin-left: -2px;
+  padding: 0 0 8px;
+  color: grey;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.add_icon {
+  align-items: center;
+  border-radius: 50%;
+  color: #dd4b39;
+  display: inline-flex;
+  height: 17px;
+  justify-content: center;
+  margin-right: 11px;
+  -webkit-transform: translateY(8px);
+  transform: translateY(8px);
+  vertical-align: 7px;
+  width: 17px;
+}
