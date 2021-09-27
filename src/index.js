@@ -5,7 +5,6 @@ import renderProjectFormModal from './projectFormModal';
 import renderOverlay from './overlay';
 import renderMainTaskContentHolder from './mainContent';
 import renderTaskForm from './taskForm';
-import createLineforProjectList from './projectFeature';
 
 // IIFE which renders the initial page
 const renderInitialpage = (() => {
@@ -58,7 +57,7 @@ const projectForm = (() => {
 
 // IIFE which handles the logic when a new project name is entered by the user
 const addProjectLogicModule = (() => {
-  const projectList = document.querySelector('[data-project-list]');
+  const projectList = document.querySelector('[data-project]');
   const newProjectForm = document.querySelector('[data-project-form]');
   const newProjectInput = document.querySelector('[data-project-input]');
   const addProjectButton = document.getElementById('add_project');
@@ -237,4 +236,5 @@ const addProjectLogicModule = (() => {
 })();
 
 // IIFE which handles task logic
+
 const addTaskLogicModule = (() => {})();
