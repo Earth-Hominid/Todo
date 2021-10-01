@@ -930,34 +930,6 @@ li {
   word-break: break-word;
 }
 
-.plus-add-button {
-  text-align: left;
-  width: 100%;
-  margin-left: -2px;
-  padding: 0 0 8px;
-  font-size: 1.5em;
-  font-family: Poppins-SemiBold;
-  line-height: 25px;
-  white-space: nowrap;
-  text-decoration: none;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.plus-icon {
-  align-items: center;
-  border-radius: 50%;
-  display: inline-flex;
-  height: 17px;
-  justify-content: center;
-  margin-right: 11px;
-  -webkit-transform: translateY(8px);
-  transform: translateY(8px);
-  vertical-align: 7px;
-  width: 17px;
-}
-
 #form-container {
   padding-left: 2.5vw;
 }
