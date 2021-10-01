@@ -177,7 +177,7 @@ function renderMainTaskContentHolder() {
     nameInput.setAttribute('name', 'name');
     nameInput.setAttribute(
       'placeholder',
-      'Add task e.g., Sunday dinner, pick up desert 6:00pm'
+      'e.g., Sunday dinner, pick up desert 6:00pm'
     );
     nameInput.setAttribute('autocomplete', 'off');
     nameInput.required = true;

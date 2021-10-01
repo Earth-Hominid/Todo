@@ -420,7 +420,6 @@ li {
 }
 
 .project_view {
-  margin-bottom: 38px;
   max-width: 800px;
   min-width: 325px;
 }
@@ -846,11 +845,11 @@ li {
   text-shadow: none;
   border: 1px solid transparent;
   font-weight: 700;
-  font-size: 13px !important;
+  font-size: 14px !important;
   line-height: 17px;
   padding: 6px 12px 7px;
   position: relative;
-  display: inline-block;
+  display: flex;
   white-space: nowrap;
   border-radius: 3px !important;
   text-decoration: none !important;
