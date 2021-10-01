@@ -191,6 +191,7 @@ function renderMainTaskContentHolder() {
     addTaskFormButton.classList = 'add-task';
     addTaskFormButton.textContent = 'Add';
     cancelTaskFormButton.classList = 'cancel-task';
+    cancelTaskButtonDiv.setAttribute('id', 'cancel-task');
     cancelTaskFormButton.textContent = 'Cancel';
     priorityDiv.setAttribute('id', 'task-item-action');
     priorityButton.classList.add('item-actions-priority');

@@ -71,6 +71,11 @@ const addProjectLogicModule = (() => {
   );
   const projectNameElement = document.querySelector('[data-project-name]');
   const tasksContainer = document.querySelector('[data-tasks]');
+  const addTaskRevealButton = document.querySelector('[data-task-target]');
+  const formContainer = document.getElementById('form-container');
+  const taskAction = document.getElementById('task_actions');
+  const cancelButton = document.getElementById('cancel-task');
+  const projectNameContent = document.getElementById('project-name-content');
 
   let projects =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
@@ -94,11 +99,22 @@ const addProjectLogicModule = (() => {
     projects.push(project);
   }
 
-  deleteProjectButton.addEventListener('click', (e) => {
-    projects = projects.filter((project) => project.id !== selectedProjectId);
-    selectedProjectId = null;
-    saveAndRenderProject();
-  });
+  const deleteProjectAlert = () => {
+    if (
+      confirm(
+        `Are you sure you want to delete the ${projectNameContent.innerText} project`
+      )
+    ) {
+      projects = projects.filter((project) => project.id !== selectedProjectId);
+      selectedProjectId = null;
+      saveAndRenderProject();
+      hideFormAndShowAddTaskButton();
+    } else {
+      preventDefault();
+    }
+  };
+
+  deleteProjectButton.addEventListener('click', deleteProjectAlert);
 
   newProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -163,23 +179,22 @@ const addProjectLogicModule = (() => {
       element.removeChild(element.firstChild);
     }
   }
-  renderProjectName();
-})();
 
-//IIFE containing task logic
-
-const taskLogicModule = (() => {
-  const addTaskRevealButton = document.querySelector('[data-task-target]');
-  const formContainer = document.getElementById('form-container');
-  const taskAction = document.getElementById('task_actions');
-
-  const showForm = () => {
+  const showFormAndHideAddTaskButton = () => {
     formContainer.style.display = 'block';
     formContainer.scrollIntoView();
     taskAction.style.display = 'none';
   };
 
-  addTaskRevealButton.addEventListener('click', showForm);
+  const hideFormAndShowAddTaskButton = () => {
+    formContainer.style.display = 'none';
+    taskAction.style.display = 'block';
+  };
+
+  addTaskRevealButton.addEventListener('click', showFormAndHideAddTaskButton);
+  cancelButton.addEventListener('click', hideFormAndShowAddTaskButton);
 
   //taskAction.classList.add('active-task');
+
+  renderProjectName();
 })();
