@@ -12,7 +12,7 @@ function renderProjectContainer() {
     const projectTitle = document.createElement('h2');
     const projectList = document.createElement('ul');
 
-    //set class
+    // set class, attributes, images
     projectHolder.classList = 'project_header';
     projectHolder.id = 'project_header';
     projectTitle.classList = 'project_title';
@@ -21,7 +21,7 @@ function renderProjectContainer() {
     projectTitle.id = 'project_title';
     projectList.classList = 'project_list';
     projectList.id = 'project_list';
-    projectList.setAttribute('data-project-list', '');
+    projectList.setAttribute('data-project', '');
 
     // append to DOM
     projectContainer.appendChild(projectHolder);
