@@ -1,6 +1,4 @@
 import DeleteIcon from './images/delete.png';
-import PlusIcon from './images/plus.png';
-import renderTaskForm from './taskForm';
 
 function renderMainTaskContentHolder() {
   const deleteIcon = new Image();
@@ -121,6 +119,7 @@ function renderMainTaskContentHolder() {
     addTaskButton.setAttribute('type', 'button');
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
+    addTaskButton.setAttribute('data-task-target', '#task');
 
     taskSectionElement.appendChild(taskListHolder);
     taskListHolder.appendChild(projectTaskList);
