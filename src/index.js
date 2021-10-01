@@ -1,7 +1,6 @@
 import './style.css';
 import renderNavigation from './nav';
 import renderLeftMenu from './leftMenu';
-import renderProjectFormModal from './projectFormModal';
 import renderOverlay from './overlay';
 import renderMainTaskContentHolder from './mainContent';
 import renderTaskFormModal from './taskFormModal';
@@ -11,7 +10,6 @@ const renderInitialpage = (() => {
   document.body.appendChild(renderNavigation());
   document.body.appendChild(renderLeftMenu());
   document.body.appendChild(renderMainTaskContentHolder());
-  document.body.appendChild(renderProjectFormModal());
   document.body.appendChild(renderTaskFormModal());
   document.body.appendChild(renderOverlay());
 })();
@@ -166,9 +164,7 @@ const addProjectLogicModule = (() => {
     }
   }
 
-  const renderTasks = (() => {
-    
-  })();
+  const renderTasks = (() => {})();
 
   renderProjectName();
 })();
