@@ -163,8 +163,23 @@ const addProjectLogicModule = (() => {
       element.removeChild(element.firstChild);
     }
   }
-
-  const renderTasks = (() => {})();
-
   renderProjectName();
+})();
+
+//IIFE containing task logic
+
+const taskLogicModule = (() => {
+  const addTaskRevealButton = document.querySelector('[data-task-target]');
+  const formContainer = document.getElementById('form-container');
+  const taskAction = document.getElementById('task_actions');
+
+  const showForm = () => {
+    formContainer.style.display = 'block';
+    formContainer.scrollIntoView();
+    taskAction.style.display = 'none';
+  };
+
+  addTaskRevealButton.addEventListener('click', showForm);
+
+  //taskAction.classList.add('active-task');
 })();

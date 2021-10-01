@@ -453,6 +453,7 @@ li {
 .delete_project:hover {
   background-color: #e6e9f4;
 }
+
 .header_actions {
   display: flex;
   align-items: center;
@@ -859,6 +860,10 @@ li {
   margin-top: 5vh;
 }
 
+#task_add_button.active-task {
+  display: none;
+}
+
 .clickable {
   padding: 0;
   position: relative;
@@ -932,6 +937,7 @@ li {
 
 #form-container {
   padding-left: 2.5vw;
+  display: none;
 }
 
 .content {
