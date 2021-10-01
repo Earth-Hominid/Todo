@@ -142,8 +142,6 @@ function renderMainTaskContentHolder() {
     mainTaskContentHolder.appendChild(formContainer);
 
     const content = document.createElement('div');
-    const addTaskOriginalButton = document.createElement('button');
-    const addTaskOriginalSpan = document.createElement('span');
     const form = document.createElement('form');
     const taskDetails = document.createElement('div');
     const taskDetailsInputFields = document.createElement('div');
@@ -163,10 +161,6 @@ function renderMainTaskContentHolder() {
     const priorityButton = document.createElement('button');
     const priorityButtonSpan = document.createElement('span');
     const submitFormField = document.createElement('div');
-    addTaskOriginalButton.setAttribute('data-add-task-navigation', '');
-    addTaskOriginalButton.classList = 'plus-add-button';
-    addTaskOriginalButton.textContent = 'Add Task';
-    addTaskOriginalSpan.classList = 'plus-icon';
     content.classList.add('content');
     form.id = 'addtaskform';
     taskDetails.classList.add('task-details');
@@ -203,8 +197,6 @@ function renderMainTaskContentHolder() {
 
     // Append
     formContainer.append(content);
-    content.appendChild(addTaskOriginalButton);
-    addTaskOriginalButton.appendChild(addTaskOriginalSpan);
     content.appendChild(form);
     form.append(taskDetails);
     taskDetails.append(taskDetailsInputFields);
