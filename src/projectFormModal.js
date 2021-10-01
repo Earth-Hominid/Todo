@@ -1,9 +1,8 @@
 function renderProjectFormModal() {
-  // create element
   const modalDiv = document.createElement('div');
-  // set attribute
   modalDiv.setAttribute('id', 'modal');
   modalDiv.classList = 'modal';
+
   // IIFE to create header
   const renderModalHeader = (() => {
     // create elements
@@ -21,6 +20,7 @@ function renderProjectFormModal() {
     modalHeader.appendChild(modalTitle);
     modalHeader.appendChild(closeButton);
   })();
+
   // IIFE to create form body
   const projectForm = (() => {
     // create elements
@@ -49,9 +49,9 @@ function renderProjectFormModal() {
     formField.appendChild(projectLabel);
     formField.appendChild(nameInput);
   })();
+
   // IIFE to create form footer
   const renderModalFooter = (() => {
-    // create elements
     const footer = document.createElement('footer');
     const addButton = document.createElement('button');
     const cancelButton = document.createElement('button');

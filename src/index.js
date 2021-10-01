@@ -168,33 +168,3 @@ const addProjectLogicModule = (() => {
 
   renderProjectName();
 })();
-
-//IIFE which generates form modal popup when the add task button is clicked
-const taskForm = (() => {
-  const openTaskButton = document.querySelectorAll('[data-task-target]');
-  const closeTaskButton = document.querySelectorAll('[data-close-button');
-  const overlay = document.getElementById('overlay');
-
-  openTaskButton.forEach((button) => {
-    button.addEventListener('click', () => {
-      const taskModal = document.querySelector(button.dataset.taskTarget);
-      openTaskModal(taskModal);
-    });
-  });
-
-  function openTaskModal(taskModal) {
-    if (taskModal == null) return;
-    taskModal.classList.add('active');
-    overlay.classList.add('active');
-  }
-
-  function closeTaskModal(taskModal) {
-    if (taskModal == null) return;
-    taskModal.classList.remove('active');
-    overlay.closest.remove('active');
-  }
-})();
-
-// IIFE which handles task logic
-
-const addTaskLogicModule = (() => {})();

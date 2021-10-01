@@ -398,6 +398,7 @@ li {
 }
 
 .main_content {
+  height: calc(100vh - 44px);
   margin-left: 267px;
   display: flex;
   flex-direction: column;
@@ -412,21 +413,15 @@ li {
 }
 
 #editor {
-  min-width: 325px;
-  max-width: 800px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   vertical-align: top;
-  padding-left: 30px;
+  padding-left: 2.5vw;
 }
 
 .project_view {
-  --view-header-height: 72px;
-  margin-bottom: 38px;
-  padding-bottom: 2px;
-  outline: none !important;
-  display: block;
+  max-width: 800px;
+  min-width: 325px;
 }
 
 .project_view_header {
@@ -444,11 +439,7 @@ li {
 .header_content {
   display: flex;
   width: 100%;
-  padding-bottom: 8px;
-  max-width: 800px;
-  margin: 0 auto;
   transition: border-bottom-color 0.3s;
-  align-items: flex-start;
   word-break: break-word;
 }
 
@@ -854,11 +845,11 @@ li {
   text-shadow: none;
   border: 1px solid transparent;
   font-weight: 700;
-  font-size: 13px !important;
+  font-size: 14px !important;
   line-height: 17px;
   padding: 6px 12px 7px;
   position: relative;
-  display: inline-block;
+  display: flex;
   white-space: nowrap;
   border-radius: 3px !important;
   text-decoration: none !important;
@@ -968,9 +959,7 @@ li {
 }
 
 #form-container {
-  padding: 10px 10px 0;
-  padding-left: 30px;
-  padding-right: 55px;
+  padding-left: 2.5vw;
 }
 
 .content {
@@ -1108,9 +1097,10 @@ li {
   border-radius: 5px;
   white-space: nowrap;
   box-sizing: border-box;
-  background-color: #db4c3f !important;
-  border-color: #db4c3f !important;
+  background-color: #0058ff !important;
+  border-color: #0058ff !important;
   color: #fff !important;
+  font-family: Roboto;
 }
 
 .cancel-task {
@@ -1138,4 +1128,5 @@ li {
   user-select: none;
   text-decoration: none;
   margin-left: 8px;
+  font-family: Roboto;
 }
