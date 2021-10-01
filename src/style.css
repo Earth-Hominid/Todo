@@ -413,12 +413,11 @@ li {
 
 #editor {
   min-width: 325px;
-  max-width: 750px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   vertical-align: top;
-  padding-bottom: 84px;
   padding-left: 30px;
 }
 
@@ -432,13 +431,10 @@ li {
 
 .project_view_header {
   display: flex;
-  background-color: #fff;
   flex-shrink: 0;
   position: sticky;
   top: 0;
   z-index: 2;
-  padding-left: 55px;
-  padding-right: 55px;
   padding-top: 36px;
   outline: none !important;
   margin-top: 10px;
@@ -729,14 +725,6 @@ li {
   border-left: 0.1px solid transparent;
 }
 
-.content {
-  outline: none;
-  user-select: text;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-  -webkit-user-modify: read-write-plaintext-only;
-}
-
 /* */
 
 #listbox {
@@ -744,15 +732,13 @@ li {
 }
 
 .list_editor {
-  padding-left: 55px;
   padding-right: 55px;
   max-width: 800px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   background-color: #fff;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 5px;
 }
 
 .section_list {
@@ -818,6 +804,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3px;
+  margin-left: 5px;
 }
 
 .task_content_title {
@@ -957,10 +944,10 @@ li {
   width: 100%;
   margin-left: -2px;
   padding: 0 0 8px;
-  color: grey;
-  font-size: 14px;
+  font-size: 1.5em;
+  font-family: Poppins-SemiBold;
+  line-height: 25px;
   white-space: nowrap;
-  color: grey !important;
   text-decoration: none;
   background-color: transparent;
   border: none;
@@ -982,7 +969,7 @@ li {
 
 #form-container {
   padding: 10px 10px 0;
-  padding-left: 55px;
+  padding-left: 30px;
   padding-right: 55px;
 }
 
@@ -994,6 +981,7 @@ li {
   color: #202020;
   outline-style: none;
   outline-width: 0px;
+  background: #e6e9f4;
 }
 
 .task-details {
@@ -1001,6 +989,7 @@ li {
   border-radius: 5px;
   padding: 10px 10px 0;
   cursor: text;
+  background: #fff;
 }
 
 .task_editor_input_fields {
@@ -1020,7 +1009,7 @@ li {
   height: 21px;
   width: 100%;
   font-size: 14px;
-  font-family: Roboto;
+  font-family: Poppins-Regular;
   font-weight: 500;
   line-height: 21px;
   color: rgb(32, 32, 32);
@@ -1038,6 +1027,7 @@ li {
   width: 100%;
   border: none;
   outline: none;
+  font-family: Poppins-Regular;
 }
 
 #task-editor {

@@ -3,14 +3,14 @@ import renderNavigation from './nav';
 import renderLeftMenu from './leftMenu';
 import renderOverlay from './overlay';
 import renderMainTaskContentHolder from './mainContent';
-import renderTaskFormModal from './taskFormModal';
+import renderProjectFormModal from './projectFormModal';
 
 // IIFE which renders the initial page
 const renderInitialpage = (() => {
   document.body.appendChild(renderNavigation());
   document.body.appendChild(renderLeftMenu());
   document.body.appendChild(renderMainTaskContentHolder());
-  document.body.appendChild(renderTaskFormModal());
+  document.body.appendChild(renderProjectFormModal());
   document.body.appendChild(renderOverlay());
 })();
 
