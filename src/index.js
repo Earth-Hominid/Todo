@@ -110,7 +110,7 @@ const addProjectLogicModule = (() => {
       saveAndRenderProject();
       hideFormAndShowAddTaskButton();
     } else {
-      preventDefault();
+      return;
     }
   };
 
