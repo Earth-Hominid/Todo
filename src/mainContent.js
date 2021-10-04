@@ -116,10 +116,12 @@ function renderMainTaskContentHolder() {
     taskCheckBox.classList = 'task_checkbox_button';
     taskCheckBox.setAttribute('tabindex', '0');
     projectTaskAddButtonLine.classList = 'task_actions';
+    projectTaskAddButtonLine.id = 'task_actions';
+    projectTaskAddButtonLine.setAttribute('data-task-action', '');
     addTaskButton.setAttribute('type', 'button');
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
-    addTaskButton.setAttribute('data-task-target', '#task');
+    addTaskButton.setAttribute('data-task-target', '');
 
     taskSectionElement.appendChild(taskListHolder);
     taskListHolder.appendChild(projectTaskList);
@@ -189,6 +191,7 @@ function renderMainTaskContentHolder() {
     addTaskFormButton.classList = 'add-task';
     addTaskFormButton.textContent = 'Add';
     cancelTaskFormButton.classList = 'cancel-task';
+    cancelTaskButtonDiv.setAttribute('id', 'cancel-task');
     cancelTaskFormButton.textContent = 'Cancel';
     priorityDiv.setAttribute('id', 'task-item-action');
     priorityButton.classList.add('item-actions-priority');
