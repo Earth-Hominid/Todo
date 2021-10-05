@@ -16,15 +16,17 @@
 ## Modular JavaScript Ground Rules
 
 - Self-contained code
-- - Everything associated with my module is in my module
-- - No global variables
-- - If a module manages more than one thing, it should be split up.
 
-- Separation of Concerns
-- DRY code: Do not repeat yourself
+* Everything associated with my module is in my module
+* No global variables
+* If a module manages more than one thing, it should be split up.
 
-- Efficient DOM usage
-- - Very few $(selections)
+* Separation of Concerns
+* DRY code: Do not repeat yourself
 
-- No memory leaks
-- - All events can be unbound
+* Efficient DOM usage
+* Very few $(selections)
+
+* No memory leaks
+* All events can be unbound
+* Ensure event listeners go away.
