@@ -94,9 +94,7 @@ function renderMainTaskContentHolder() {
     taskListItemContent.classList = 'task_list_item_content';
     taskListItemContentWrapper.classList = 'task_list_item_wrapper';
     taskContentTitle.classList = 'task_content_title';
-    taskContentTitle.innerText = 'This is a task';
     taskContentDescription.classList = 'task_content_description';
-    taskContentDescription.innerText = 'This is a description';
 
     const addTaskButton = document.createElement('button');
 

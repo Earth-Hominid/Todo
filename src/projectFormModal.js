@@ -36,7 +36,6 @@ function renderProjectFormModal() {
     projectLabel.id = 'project_modal_label';
     nameInput.id = 'project_title_input';
     nameInput.setAttribute('type', 'text');
-    nameInput.setAttribute('name', 'name');
     nameInput.setAttribute('maxlength', '50');
     nameInput.setAttribute('value', '');
     nameInput.setAttribute('placeholder', 'Enter project name');
