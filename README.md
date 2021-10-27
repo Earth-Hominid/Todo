@@ -30,3 +30,27 @@
 * No memory leaks
 * All events can be unbound
 * Ensure event listeners go away.
+
+## Resources
+
+### JavaScript built-in objects
+
+- [Date.now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)
+
+### Web APIs
+
+- [node.removeChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
+
+- [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+
+- [Storage.getItem()](https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem)
+
+- [Document.importNode()](https://developer.mozilla.org/en-US/docs/Web/API/Document/importNode)
+
+### Arrays
+
+- [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+- [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+- [Array.prototype.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
