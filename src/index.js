@@ -4,6 +4,7 @@ import renderLeftMenu from './leftMenu';
 import renderOverlay from './overlay';
 import renderMainTaskContentHolder from './mainContent';
 import renderProjectFormModal from './projectFormModal';
+import createTemplate from './template';
 
 // IIFE which renders the initial page
 const renderInitialpage = (() => {
@@ -12,6 +13,7 @@ const renderInitialpage = (() => {
   document.body.appendChild(renderMainTaskContentHolder());
   document.body.appendChild(renderProjectFormModal());
   document.body.appendChild(renderOverlay());
+  document.body.appendChild(createTemplate());
 })();
 
 // IIFE which generates a form modal popup when the add project button is clicked
@@ -56,32 +58,41 @@ const projectForm = (() => {
 
 // IIFE which handles the logic when a new project name is entered by the user
 const addProjectLogicModule = (() => {
+  // Project Elements
   const projectList = document.querySelector('[data-project]');
   const newProjectForm = document.querySelector('[data-project-form]');
   const newProjectInput = document.querySelector('[data-project-input]');
   const addProjectButton = document.getElementById('add_project');
-  const LOCAL_STORAGE_PROJECT_KEY = 'task.projects'; // name spacing to prevent overwriting
-  const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId'; // returns null if nothing is selected
-  const deleteProjectButton = document.querySelector(
-    '[data-delete-project-button]'
-  );
-  // Task List Elements
   const projectEditContainer = document.querySelector(
     '[data-project-edit-holder]'
   );
   const projectNameElement = document.querySelector('[data-project-name]');
-  const tasksContainer = document.querySelector('[data-tasks]');
-  const addTaskRevealButton = document.querySelector('[data-task-target]');
-  const formContainer = document.getElementById('form-container');
-  const taskAction = document.getElementById('task_actions');
-  const cancelButton = document.getElementById('cancel-task');
   const projectNameContent = document.getElementById('project-name-content');
-
+  // name spacing to prevent overwriting
+  const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
+  // returns null if nothing is selected
+  const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
+  const deleteProjectButton = document.querySelector(
+    '[data-delete-project-button]'
+  );
   let projects =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
   let selectedProjectId = localStorage.getItem(
     LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY
   );
+
+  // Task Elements
+  const taskCountElement = document.querySelector('[data-task-count]');
+  const tasksContainer = document.querySelector('[data-tasks]');
+  const taskTemplate = document.getElementById('task-template');
+  const newTaskForm = document.querySelector('[data-new-task-form]');
+  const newTaskNameInput = document.querySelector('[data-new-task-name-input]');
+  const addTaskRevealButton = document.querySelector('[data-task-target]');
+  const formContainer = document.getElementById('form-container');
+  const taskAction = document.getElementById('task_actions');
+  const cancelButton = document.getElementById('cancel-task');
+
+  // Project Logic
 
   // add event listener to a dynamically generated element by adding it to the div container, thus, hitting all of the list items.
   projectList.addEventListener('click', (e) => {
@@ -90,14 +101,6 @@ const addProjectLogicModule = (() => {
       saveAndRenderProject();
     }
   });
-
-  function setProjectName() {
-    const projectName = newProjectInput.value;
-    if (projectName == null || projectName === '') return;
-    const project = createProject(projectName);
-    newProjectInput.value = null;
-    projects.push(project);
-  }
 
   const deleteProjectAlert = () => {
     if (
@@ -116,10 +119,18 @@ const addProjectLogicModule = (() => {
 
   deleteProjectButton.addEventListener('click', deleteProjectAlert);
 
+  function setProjectName() {
+    const projectName = newProjectInput.value;
+    if (projectName == null || projectName === '') return;
+    const project = createProject(projectName);
+    newProjectInput.value = null;
+    projects.push(project);
+  }
+
   newProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     setProjectName();
-    renderProjectName();
+    saveAndRenderProject();
   });
 
   addProjectButton.addEventListener('click', (e) => {
@@ -129,55 +140,114 @@ const addProjectLogicModule = (() => {
   });
 
   function createProject(name) {
-    return { id: Date.now().toString(), name: name, tasks: [] };
+    return {
+      id: Date.now().toString(),
+      name: name,
+      tasks: [
+        {
+          id: 'ssds',
+          name: 'Test',
+          complete: false,
+        },
+      ],
+    };
   }
 
-  const saveProject = () => {
+  function createTask(name) {
+    return { id: Date.now().toString(), name: name, complete: false };
+  }
+
+  function save() {
     localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects));
     localStorage.setItem(
       LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY,
       selectedProjectId
     );
-  };
+  }
 
   const renderProjects = () => {
     projects.forEach((project) => {
-      const listElement = document.createElement('li');
-      listElement.classList.add('list-name');
-      listElement.dataset.projectId = project.id;
-      listElement.innerText = project.name;
+      const projectElement = document.createElement('li');
+      projectElement.classList.add('list-name');
+      projectElement.dataset.projectId = project.id;
+      projectElement.innerText = project.name;
       if (project.id === selectedProjectId)
-        listElement.classList.add('active-project');
-      projectList.appendChild(listElement);
+        projectElement.classList.add('active-project');
+      projectList.appendChild(projectElement);
     });
   };
 
-  const projectContainerToggle = () => {
+  // Clear the project list and render / re-render the project names.
+  const renderProjectName = () => {
+    removeElement(projectList);
+    renderProjects();
+
     const selectedProject = projects.find(
       (project) => project.id === selectedProjectId
     );
     return selectedProjectId == null
       ? (projectEditContainer.style.display = 'none')
       : ((projectEditContainer.style.display = ''),
-        (projectNameElement.innerText = selectedProject.name));
-  };
-
-  // Function first clears project list and then renders project name.
-  const renderProjectName = () => {
-    clearElement(projectList);
-    renderProjects();
-    projectContainerToggle();
+        (projectNameElement.innerText = selectedProject.name),
+        removeElement(tasksContainer),
+        renderTasks(selectedProject));
   };
 
   const saveAndRenderProject = () => {
-    saveProject();
+    save();
     renderProjectName();
   };
 
-  function clearElement(element) {
+  function removeElement(element) {
     while (element.firstChild) {
       element.removeChild(element.firstChild);
     }
+  }
+
+  // Task Logicf
+
+  tasksContainer.addEventListener('click', (e) => {
+    if (e.target.tagName.toLowerCase() === 'input') {
+      const selectedProject = projects.find(
+        (project) => project.id === selectedProjectId
+      );
+      const selectedTask = selectedProject.tasks.find(
+        (task) => task.id === e.target.id
+      );
+      selectedTask.complete = e.target.checked;
+      save();
+      // renderTaskCount(selectedProject);
+    }
+  });
+
+  function setTaskName() {
+    const taskName = newTaskNameInput.value;
+    if (taskName == null || taskName === '') return;
+    const task = createTask(taskName);
+    newTaskNameInput.value = null;
+    const selectedProject = projects.find(
+      (project) => project.id === selectedProjectId
+    );
+    selectedProject.tasks.push(task);
+  }
+
+  newTaskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    setTaskName();
+    saveAndRenderProject();
+  });
+
+  function renderTasks(selectedProject) {
+    selectedProject.tasks.forEach((task) => {
+      const taskElement = document.importNode(taskTemplate.content, true);
+      const checkbox = taskElement.querySelector('input');
+      checkbox.id = task.id;
+      checkbox.checked = task.complete;
+      const label = taskElement.querySelector('label');
+      label.htmlFor = task.id;
+      label.append(task.name);
+      tasksContainer.appendChild(taskElement);
+    });
   }
 
   const showFormAndHideAddTaskButton = () => {
@@ -198,3 +268,5 @@ const addProjectLogicModule = (() => {
 
   renderProjectName();
 })();
+
+const addTaskLogicModule = (() => {})();
