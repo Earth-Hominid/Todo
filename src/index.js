@@ -143,13 +143,7 @@ const addProjectLogicModule = (() => {
     return {
       id: Date.now().toString(),
       name: name,
-      tasks: [
-        {
-          id: 'ssds',
-          name: 'Test',
-          complete: false,
-        },
-      ],
+      tasks: [],
     };
   }
 
@@ -204,7 +198,7 @@ const addProjectLogicModule = (() => {
     }
   }
 
-  // Task Logicf
+  // Task Logic
 
   tasksContainer.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() === 'input') {
@@ -240,7 +234,7 @@ const addProjectLogicModule = (() => {
   function renderTasks(selectedProject) {
     selectedProject.tasks.forEach((task) => {
       const taskElement = document.importNode(taskTemplate.content, true);
-      const checkbox = taskElement.querySelector('input');
+      const checkbox = taskElement.querySelector('.task_checkbox_button');
       checkbox.id = task.id;
       checkbox.checked = task.complete;
       const label = taskElement.querySelector('label');

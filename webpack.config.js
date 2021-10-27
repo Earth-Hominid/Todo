@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { default: ESLintWebpackPlugin } = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -8,7 +9,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'todo TODO'
+      title: 'todo TODO',
     }),
   ],
   output: {
