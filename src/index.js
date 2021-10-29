@@ -86,7 +86,10 @@ const addProjectLogicModule = (() => {
   const tasksContainer = document.querySelector('[data-tasks]');
   const taskTemplate = document.getElementById('task-template');
   const newTaskForm = document.querySelector('[data-new-task-form]');
+
   const newTaskNameInput = document.querySelector('[data-new-task-name-input]');
+  const newTaskDescriptionInput = document.getElementById('description');
+
   const addTaskRevealButton = document.querySelector('[data-task-target]');
   const formContainer = document.getElementById('form-container');
   const taskAction = document.getElementById('task_actions');
@@ -143,18 +146,17 @@ const addProjectLogicModule = (() => {
     return {
       id: Date.now().toString(),
       name: name,
-      tasks: [
-        {
-          id: 'ssds',
-          name: 'Test',
-          complete: false,
-        },
-      ],
+      tasks: [],
     };
   }
 
-  function createTask(name) {
-    return { id: Date.now().toString(), name: name, complete: false };
+  function createTask(name, description) {
+    return {
+      id: Date.now().toString(),
+      name: name,
+      description: description,
+      complete: false,
+    };
   }
 
   function save() {
@@ -204,7 +206,7 @@ const addProjectLogicModule = (() => {
     }
   }
 
-  // Task Logicf
+  // Task Logic
 
   tasksContainer.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() === 'input') {
@@ -217,18 +219,30 @@ const addProjectLogicModule = (() => {
       selectedTask.complete = e.target.checked;
       save();
       // renderTaskCount(selectedProject);
+      removeElement(tasksContainer);
+      renderTasks(selectedProject);
     }
   });
 
   function setTaskName() {
     const taskName = newTaskNameInput.value;
-    if (taskName == null || taskName === '') return;
-    const task = createTask(taskName);
+    const taskDescription = newTaskDescriptionInput.value;
+    if (
+      taskName == null ||
+      taskName === '' ||
+      taskDescription == null ||
+      taskDescription === ''
+    )
+      return;
+    const task = createTask(taskName, taskDescription);
+    console.log(task);
     newTaskNameInput.value = null;
+    newTaskDescriptionInput.value = null;
     const selectedProject = projects.find(
       (project) => project.id === selectedProjectId
     );
     selectedProject.tasks.push(task);
+    console.log(selectedProject.tasks);
   }
 
   newTaskForm.addEventListener('submit', (e) => {
@@ -240,12 +254,19 @@ const addProjectLogicModule = (() => {
   function renderTasks(selectedProject) {
     selectedProject.tasks.forEach((task) => {
       const taskElement = document.importNode(taskTemplate.content, true);
-      const checkbox = taskElement.querySelector('input');
+      const checkbox = taskElement.querySelector('.task_checkbox_button');
       checkbox.id = task.id;
       checkbox.checked = task.complete;
-      const label = taskElement.querySelector('label');
-      label.htmlFor = task.id;
-      label.append(task.name);
+      const taskItemWrapper = taskElement.querySelector(
+        '.task_list_item_wrapper'
+      );
+      const taskTitle = taskElement.querySelector('.task_content_title');
+      const taskDescription = taskElement.querySelector(
+        '.task_content_description'
+      );
+      taskItemWrapper.htmlFor = task.id;
+      taskTitle.innerText = task.name;
+      taskDescription.innerText = task.description;
       tasksContainer.appendChild(taskElement);
     });
   }
@@ -268,5 +289,3 @@ const addProjectLogicModule = (() => {
 
   renderProjectName();
 })();
-
-const addTaskLogicModule = (() => {})();

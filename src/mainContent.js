@@ -44,6 +44,11 @@ function renderMainTaskContentHolder() {
     headerActionButtonHolder.classList = 'header_actions';
     projectHeaderViewContent.appendChild(headerActionButtonHolder);
 
+    const tasksRemaining = document.createElement('p');
+    tasksRemaining.classList = 'task-count';
+    tasksRemaining.setAttribute('data-task-count', '');
+    headerActionButtonHolder.appendChild(tasksRemaining);
+
     const deleteProjectActionHolder = document.createElement('div');
     deleteProjectActionHolder.classList = 'delete_project';
     deleteProjectActionHolder.setAttribute('data-delete-project-button', '');
@@ -58,7 +63,6 @@ function renderMainTaskContentHolder() {
 
     const headerActionText = document.createElement('div');
     headerActionText.classList = 'header_action_text';
-    headerActionText.textContent = 'Delete project';
     deleteProjectActionHolder.appendChild(headerActionText);
 
     const taskListBox = document.createElement('div');
@@ -80,39 +84,13 @@ function renderMainTaskContentHolder() {
     taskLineElement.appendChild(taskSectionElement);
 
     const taskListHolder = document.createElement('div');
-    const projectTaskList = document.createElement('ul');
-    const projectTaskListLine = document.createElement('li');
     const projectTaskAddButtonLine = document.createElement('li');
-    const taskListItemBody = document.createElement('div');
-    const taskCheckBox = document.createElement('button');
-
-    const taskListItemContent = document.createElement('div');
-    const taskListItemContentWrapper = document.createElement('div');
-    const taskContentTitle = document.createElement('div');
-    const taskContentDescription = document.createElement('div');
-
-    taskListItemContent.classList = 'task_list_item_content';
-    taskListItemContentWrapper.classList = 'task_list_item_wrapper';
-    taskContentTitle.classList = 'task_content_title';
-    taskContentDescription.classList = 'task_content_description';
-
     const addTaskButton = document.createElement('button');
+    const deleteTaskButton = document.createElement('button');
 
-    taskListHolder.classList = 'task_list_holder';
-    projectTaskList.classList = 'task_items';
+    taskListHolder.classList = 'tasks';
+    taskListHolder.setAttribute('data-tasks', '');
 
-    projectTaskListLine.classList = 'items';
-    projectTaskListLine.setAttribute('data-task-item', '');
-
-    taskListItemBody.classList = 'task_list_item_body';
-    taskListItemBody.setAttribute('role', 'button');
-    taskListItemBody.setAttribute('tabindex', '0');
-
-    taskCheckBox.setAttribute('type', 'button');
-    taskCheckBox.setAttribute('role', 'checkbox');
-    taskCheckBox.setAttribute('aria-label', 'Mark task complete');
-    taskCheckBox.classList = 'task_checkbox_button';
-    taskCheckBox.setAttribute('tabindex', '0');
     projectTaskAddButtonLine.classList = 'task_actions';
     projectTaskAddButtonLine.id = 'task_actions';
     projectTaskAddButtonLine.setAttribute('data-task-action', '');
@@ -120,19 +98,14 @@ function renderMainTaskContentHolder() {
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
     addTaskButton.setAttribute('data-task-target', '');
+    deleteTaskButton.classList = 'task_delete_button';
+    deleteTaskButton.textContent = 'Remove completed';
+    deleteTaskButton.setAttribute('data-task-delete', '');
 
     taskSectionElement.appendChild(taskListHolder);
-    taskListHolder.appendChild(projectTaskList);
-    projectTaskList.appendChild(projectTaskListLine);
-    projectTaskList.appendChild(projectTaskAddButtonLine);
-    projectTaskListLine.appendChild(taskListItemBody);
-    taskListItemBody.appendChild(taskCheckBox); // can add cirlce to append here
-    taskListItemBody.appendChild(taskListItemContent);
-    taskListItemContent.appendChild(taskListItemContentWrapper);
-    taskListItemContentWrapper.appendChild(taskContentTitle);
-    taskListItemContentWrapper.appendChild(taskContentDescription);
-
+    taskSectionElement.appendChild(projectTaskAddButtonLine);
     projectTaskAddButtonLine.appendChild(addTaskButton);
+    projectTaskAddButtonLine.appendChild(deleteTaskButton);
   })();
 
   const createForm = (() => {
@@ -163,25 +136,30 @@ function renderMainTaskContentHolder() {
     const submitFormField = document.createElement('div');
     content.classList.add('content');
     form.id = 'addtaskform';
+    form.setAttribute('data-new-task-form', '');
+    form.setAttribute('action', '');
     taskDetails.classList.add('task-details');
     taskDetailsInputFields.classList = 'task_editor_input_fields';
     nameDiv.classList.add('input-box');
     nameInput.id = 'name';
+    nameInput.setAttribute('data-new-task-name-input', '');
     nameInput.setAttribute('type', 'text');
-    nameInput.setAttribute('name', 'name');
     nameInput.setAttribute(
       'placeholder',
       'e.g., Sunday dinner, pick up desert 6:00pm'
     );
     nameInput.setAttribute('autocomplete', 'off');
     nameInput.required = true;
+    nameInput.setAttribute('aria-label', 'new-task-name');
     descriptionDiv.classList.add('input-box');
     descriptionInput.id = 'description';
     descriptionInput.setAttribute('type', 'text');
+    descriptionInput.setAttribute('data-new-task-description-input', '');
+    descriptionInput.setAttribute('rows', '4');
+    descriptionInput.setAttribute('cols', '50');
     descriptionInput.setAttribute('name', 'description');
     descriptionInput.setAttribute('placeholder', 'Description');
     descriptionInput.setAttribute('autocomplete', 'off');
-    descriptionInput.required = true;
     editor.setAttribute('id', 'task-editor');
     taskEditorExtraField.classList = 'extra-field';
     taskActionFillerDiv.classList = 'extra-field-buttons';
@@ -194,7 +172,6 @@ function renderMainTaskContentHolder() {
     priorityDiv.setAttribute('id', 'task-item-action');
     priorityButton.classList.add('item-actions-priority');
     priorityButtonSpan.setAttribute('data-action', 'priority-picker');
-    priorityButtonSpan;
 
     // Append
     formContainer.append(content);

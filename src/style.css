@@ -359,14 +359,14 @@ li {
   font-family: Poppins-Medium;
   color: #0058ff;
   background-color: #e6e9f4;
-  border-left: 3px solid #0058ff;
+  border-left: 5px solid #0058ff;
 }
 
 .add_project {
   transition-property: color, border-color, background-color;
   color: #fff;
-  background-color: #21d59b;
-  border-color: #21d59b;
+  background-color: rgb(102, 109, 250);
+  border-color: rgb(102, 109, 250);
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -384,7 +384,7 @@ li {
   transition-property: box-shadow, border;
   transition-duration: 0.3s;
   transition-timing-function: ease;
-  width: 100%;
+  width: 82.5%;
   border-radius: 5px;
   white-space: nowrap;
   box-sizing: border-box;
@@ -393,8 +393,8 @@ li {
 }
 
 .add_project:hover {
-  background-color: rgb(102, 109, 250);
-  border-color: rgb(102, 109, 250);
+  background-color: rgb(98, 3, 241);
+  border-color: rgb(98, 3, 241);
 }
 
 .project_header {
@@ -415,6 +415,10 @@ li {
   font-family: Poppins-Medium;
   border-radius: 3px;
   padding-right: 3.795vw;
+}
+
+.list-name:hover {
+  background-color: #e6e9f4;
 }
 
 .main_content {
@@ -607,19 +611,15 @@ li {
 }
 
 .task_checkbox_button {
-  background-color: transparent;
-  border-color: grey;
-  color: grey;
-  height: 16px;
-  width: 16px;
-  border: 1px solid #dcdcdc;
-  border-radius: 50%;
+  margin: 8px 6px 0 -3px;
+  z-index: 1;
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  user-select: none;
 }
 
 .task_manager {
@@ -788,18 +788,6 @@ li {
   text-align: -webkit-match-parent;
 }
 
-task_checkbox_circle {
-  margin: 8px 6px 0 -3px;
-  z-index: 1;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
 .task_list_item_content {
   flex: 1;
   padding: 8px 0;
@@ -817,7 +805,7 @@ task_checkbox_circle {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .task_content_title {
@@ -851,10 +839,8 @@ task_checkbox_circle {
 }
 
 .task_actions {
-  padding: 0 20px 0 3px;
-  color: #555;
-  display: list-item;
-  text-align: -webkit-match-parent;
+  display: flex;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -862,7 +848,7 @@ task_checkbox_circle {
 
 .task_add_button {
   background: none;
-  background-color: #0058ff;
+  background-color: rgb(102, 109, 250);
   color: #fff !important;
   text-shadow: none;
   border: 1px solid transparent;
@@ -879,6 +865,35 @@ task_checkbox_circle {
   font-family: inherit;
   cursor: pointer;
   margin-top: 5vh;
+}
+
+.task_add_button:hover {
+  background-color: rgb(98, 3, 241);
+}
+.task_delete_button {
+  background: none;
+  background-color: rgb(102, 109, 250);
+  color: #fff !important;
+  text-shadow: none;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 14px !important;
+  line-height: 17px;
+  padding: 6px 12px 7px;
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  border-radius: 3px !important;
+  text-decoration: none !important;
+  text-align: center;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 5vh;
+  margin-left: 1em;
+}
+
+.task_delete_button:hover {
+  background-color: rgb(98, 3, 241);
 }
 
 #task_add_button.active-task {
@@ -1128,4 +1143,8 @@ task_checkbox_circle {
   text-decoration: none;
   margin-left: 8px;
   font-family: Roboto;
+}
+
+.task {
+  display: flex;
 }
