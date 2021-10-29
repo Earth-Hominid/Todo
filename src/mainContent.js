@@ -1,10 +1,14 @@
 import DeleteIcon from './images/delete.png';
 import RightArrow from './images/right_arrow.png';
+import MenuButtonIcon from './images/three_dot_blue_small.png';
 
 function renderMainTaskContentHolder() {
   const deleteIcon = new Image();
   deleteIcon.src = DeleteIcon;
   deleteIcon.setAttribute('id', 'delete_icon');
+  const menuButtonIcon = new Image();
+  menuButtonIcon.src = MenuButtonIcon;
+  menuButtonIcon.id = 'menu_button';
   const mainTaskContentHolder = document.createElement('main');
   mainTaskContentHolder.classList = 'main_content';
   mainTaskContentHolder.setAttribute('id', 'content');
@@ -50,21 +54,31 @@ function renderMainTaskContentHolder() {
     tasksRemaining.setAttribute('data-task-count', '');
     headerActionButtonHolder.appendChild(tasksRemaining);
 
-    const deleteProjectActionHolder = document.createElement('div');
-    deleteProjectActionHolder.classList = 'delete_project';
-    deleteProjectActionHolder.setAttribute('data-delete-project-button', '');
-    headerActionButtonHolder.appendChild(deleteProjectActionHolder);
-
-    const projectDeleteButton = document.createElement('button');
-    projectDeleteButton.setAttribute('aria-label', 'Delete project');
-    projectDeleteButton.classList = 'project_delete_button';
-    // append icon to button
-    projectDeleteButton.appendChild(deleteIcon);
-    deleteProjectActionHolder.appendChild(projectDeleteButton);
-
     const headerActionText = document.createElement('div');
     headerActionText.classList = 'header_action_text';
-    deleteProjectActionHolder.appendChild(headerActionText);
+    headerActionButtonHolder.appendChild(headerActionText);
+
+    const menuButtonHolder = document.createElement('div');
+    menuButtonHolder.classList = 'project_menu';
+    headerActionButtonHolder.appendChild(menuButtonHolder);
+
+    const menuButton = document.createElement('button');
+    menuButton.setAttribute('aria-label', 'Project Menu');
+    menuButton.classList = 'project_menu_button';
+    menuButton.appendChild(menuButtonIcon);
+    menuButtonHolder.appendChild(menuButton);
+
+    // const deleteProjectActionHolder = document.createElement('div');
+    // deleteProjectActionHolder.classList = 'delete_project';
+    // deleteProjectActionHolder.setAttribute('data-delete-project-button', '');
+    // headerActionButtonHolder.appendChild(deleteProjectActionHolder);
+
+    // const projectDeleteButton = document.createElement('button');
+    // projectDeleteButton.setAttribute('aria-label', 'Delete project');
+    // projectDeleteButton.classList = 'project_delete_button';
+    // // append icon to button
+    // projectDeleteButton.appendChild(deleteIcon);
+    // deleteProjectActionHolder.appendChild(projectDeleteButton);
 
     const taskListBox = document.createElement('div');
     const listViewEditor = document.createElement('div');
