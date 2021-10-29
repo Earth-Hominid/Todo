@@ -1,4 +1,5 @@
 import DeleteIcon from './images/delete.png';
+import RightArrow from './images/right_arrow.png';
 
 function renderMainTaskContentHolder() {
   const deleteIcon = new Image();
@@ -86,7 +87,8 @@ function renderMainTaskContentHolder() {
     const taskListHolder = document.createElement('div');
     const projectTaskAddButtonLine = document.createElement('li');
     const addTaskButton = document.createElement('button');
-    const deleteTaskButton = document.createElement('button');
+    const rightArrow = new Image();
+    // const deleteTaskButton = document.createElement('button');
 
     taskListHolder.classList = 'tasks';
     taskListHolder.setAttribute('data-tasks', '');
@@ -98,14 +100,18 @@ function renderMainTaskContentHolder() {
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
     addTaskButton.setAttribute('data-task-target', '');
-    deleteTaskButton.classList = 'task_delete_button';
-    deleteTaskButton.textContent = 'Remove completed';
-    deleteTaskButton.setAttribute('data-task-delete', '');
+    rightArrow.src = RightArrow;
+    rightArrow.setAttribute('id', 'arrow_icon');
+
+    // deleteTaskButton.classList = 'task_delete_button';
+    // deleteTaskButton.textContent = 'Remove completed';
+    // deleteTaskButton.setAttribute('data-task-delete', '');
 
     taskSectionElement.appendChild(taskListHolder);
     taskSectionElement.appendChild(projectTaskAddButtonLine);
     projectTaskAddButtonLine.appendChild(addTaskButton);
-    projectTaskAddButtonLine.appendChild(deleteTaskButton);
+    addTaskButton.appendChild(rightArrow);
+    // projectTaskAddButtonLine.appendChild(deleteTaskButton);
   })();
 
   const createForm = (() => {
