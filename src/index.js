@@ -219,6 +219,8 @@ const addProjectLogicModule = (() => {
       selectedTask.complete = e.target.checked;
       save();
       // renderTaskCount(selectedProject);
+      removeElement(tasksContainer);
+      renderTasks(selectedProject);
     }
   });
 
@@ -287,5 +289,3 @@ const addProjectLogicModule = (() => {
 
   renderProjectName();
 })();
-
-const addTaskLogicModule = (() => {})();

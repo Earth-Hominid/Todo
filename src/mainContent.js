@@ -86,6 +86,7 @@ function renderMainTaskContentHolder() {
     const taskListHolder = document.createElement('div');
     const projectTaskAddButtonLine = document.createElement('li');
     const addTaskButton = document.createElement('button');
+    const deleteTaskButton = document.createElement('button');
 
     taskListHolder.classList = 'tasks';
     taskListHolder.setAttribute('data-tasks', '');
@@ -97,11 +98,14 @@ function renderMainTaskContentHolder() {
     addTaskButton.classList = 'task_add_button';
     addTaskButton.textContent = 'Add task';
     addTaskButton.setAttribute('data-task-target', '');
+    deleteTaskButton.classList = 'task_delete_button';
+    deleteTaskButton.textContent = 'Remove completed';
+    deleteTaskButton.setAttribute('data-task-delete', '');
 
     taskSectionElement.appendChild(taskListHolder);
     taskSectionElement.appendChild(projectTaskAddButtonLine);
-
     projectTaskAddButtonLine.appendChild(addTaskButton);
+    projectTaskAddButtonLine.appendChild(deleteTaskButton);
   })();
 
   const createForm = (() => {
