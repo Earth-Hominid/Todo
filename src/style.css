@@ -550,6 +550,14 @@ li {
   top: 5px;
 }
 
+.menu_content {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .menu_icon {
   display: flex;
   align-items: flex-start;
@@ -564,6 +572,11 @@ li {
   font-size: 14px;
   line-height: 24px;
   text-align: left;
+  color: inherit;
+}
+
+.menu_text:hover {
+  color: red;
 }
 .menu_item_content {
   flex: 1;
@@ -571,6 +584,7 @@ li {
 
 .menu_item:hover {
   background-color: #e6e9f4;
+  color: red;
   cursor: pointer;
 }
 
