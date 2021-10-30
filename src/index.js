@@ -297,7 +297,7 @@ const projectMenuButtonLogic = (() => {
   const dropDownContent = document.getElementById('menu_content');
 
   function lower() {
-    dropDownContent.classList.toggle('show');
+    dropDownContent.classList.toggle('hidden');
   }
 
   dropDownButton.addEventListener('click', lower);

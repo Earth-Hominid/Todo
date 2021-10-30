@@ -77,6 +77,7 @@ function renderMainTaskContentHolder() {
 
     const menuDropDown = document.createElement('div');
     menuDropDown.classList = 'menu_content';
+    menuDropDown.classList.add('hidden');
     menuDropDown.id = 'menu_content';
     menuButtonHolder.appendChild(menuDropDown);
 
@@ -96,6 +97,7 @@ function renderMainTaskContentHolder() {
     firstMenuLine.classList.add('menu_icon');
     firstMenuLine.setAttribute('role', 'menuitem');
     firstMenuLine.setAttribute('tabindex', '0');
+    firstMenuLine.setAttribute('data-delete-project-button', '');
     menuList.appendChild(firstMenuLine);
 
     const firstLineIconHolder = document.createElement('div');
