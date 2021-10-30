@@ -292,7 +292,6 @@ const addProjectLogicModule = (() => {
 
 // IIFE which handles the logic for the project menu button
 const projectMenuButtonLogic = (() => {
-  // matchup id's
   const dropDownButton = document.getElementById('project_menu_button');
   const dropDownContent = document.getElementById('menu_content');
 
@@ -301,17 +300,4 @@ const projectMenuButtonLogic = (() => {
   }
 
   dropDownButton.addEventListener('click', lower);
-
-  window.onclick = function (event) {
-    if (!event.target.matches('.project_menu_button')) {
-      var dropdowns = document.getElementsByClassName('menu_content');
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  };
 })();

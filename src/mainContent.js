@@ -97,7 +97,7 @@ function renderMainTaskContentHolder() {
     firstMenuLine.classList.add('menu_icon');
     firstMenuLine.setAttribute('role', 'menuitem');
     firstMenuLine.setAttribute('tabindex', '0');
-    firstMenuLine.setAttribute('data-delete-project-button', '');
+    // firstMenuLine.setAttribute('data-delete-project-button', '');
     menuList.appendChild(firstMenuLine);
 
     const firstLineIconHolder = document.createElement('div');
@@ -119,6 +119,7 @@ function renderMainTaskContentHolder() {
     const secondMenuLine = document.createElement('li');
     secondMenuLine.classList = 'menu_item';
     secondMenuLine.classList.add('menu_icon');
+    secondMenuLine.setAttribute('data-delete-project-button', '');
     secondMenuLine.setAttribute('role', 'menuitem');
     secondMenuLine.setAttribute('tabindex', '0');
     menuList.appendChild(secondMenuLine);
