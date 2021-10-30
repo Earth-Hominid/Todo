@@ -1,11 +1,16 @@
 import DeleteIcon from './images/delete.png';
+import SecondDeleteIcon from './images/delete.png';
 import RightArrow from './images/right_arrow.png';
 import MenuButtonIcon from './images/three_dot_blue_small.png';
 
 function renderMainTaskContentHolder() {
   const deleteIcon = new Image();
   deleteIcon.src = DeleteIcon;
+  deleteIcon.classList = 'delete_icon';
   deleteIcon.setAttribute('id', 'delete_icon');
+  const secondDeleteIcon = new Image();
+  secondDeleteIcon.src = SecondDeleteIcon;
+  secondDeleteIcon.classList = 'delete_icon';
   const menuButtonIcon = new Image();
   menuButtonIcon.src = MenuButtonIcon;
   menuButtonIcon.id = 'menu_button';
@@ -59,14 +64,73 @@ function renderMainTaskContentHolder() {
     headerActionButtonHolder.appendChild(headerActionText);
 
     const menuButtonHolder = document.createElement('div');
-    menuButtonHolder.classList = 'project_menu';
+    menuButtonHolder.classList = 'project_button_holder';
     headerActionButtonHolder.appendChild(menuButtonHolder);
 
     const menuButton = document.createElement('button');
     menuButton.setAttribute('aria-label', 'Project Menu');
     menuButton.classList = 'project_menu_button';
+    menuButton.id = 'project_menu_button';
+
     menuButton.appendChild(menuButtonIcon);
     menuButtonHolder.appendChild(menuButton);
+
+    const menuDropDown = document.createElement('div');
+    menuDropDown.classList = 'menu_content';
+    menuDropDown.id = 'menu_content';
+    menuButtonHolder.appendChild(menuDropDown);
+
+    const menuList = document.createElement('ul');
+    menuList.classList = 'project_menu';
+    menuList.setAttribute('aria-labelledby', 'menubutton');
+    menuList.setAttribute('role', 'menu');
+    menuDropDown.appendChild(menuList);
+
+    const menuLineSep = document.createElement('li');
+    menuLineSep.classList = 'menu_separator';
+    menuLineSep.setAttribute('aria-hidden', 'true');
+    menuList.appendChild(menuLineSep);
+
+    const firstMenuLine = document.createElement('li');
+    firstMenuLine.classList = 'menu_item';
+    firstMenuLine.classList.add('menu_icon');
+    firstMenuLine.setAttribute('role', 'menuitem');
+    firstMenuLine.setAttribute('tabindex', '0');
+    menuList.appendChild(firstMenuLine);
+
+    const firstLineIconHolder = document.createElement('div');
+    firstLineIconHolder.classList = 'menu_icon';
+    firstLineIconHolder.appendChild(deleteIcon);
+    firstMenuLine.appendChild(firstLineIconHolder);
+
+    const firstLineContent = document.createElement('div');
+    firstLineContent.classList = 'menu_item_content';
+    firstLineContent.classList.add('menu_text');
+    firstLineContent.textContent = 'Delete Completed Tasks';
+    firstMenuLine.appendChild(firstLineContent);
+
+    const menuLineSeparator = document.createElement('li');
+    menuLineSeparator.classList = 'menu_separator';
+    menuLineSeparator.setAttribute('aria-hidden', 'true');
+    menuList.appendChild(menuLineSeparator);
+
+    const secondMenuLine = document.createElement('li');
+    secondMenuLine.classList = 'menu_item';
+    secondMenuLine.classList.add('menu_icon');
+    secondMenuLine.setAttribute('role', 'menuitem');
+    secondMenuLine.setAttribute('tabindex', '0');
+    menuList.appendChild(secondMenuLine);
+
+    const secondLineIconHolder = document.createElement('div');
+    secondLineIconHolder.classList = 'menu_icon';
+    secondLineIconHolder.appendChild(secondDeleteIcon);
+    secondMenuLine.appendChild(secondLineIconHolder);
+
+    const secondLineContent = document.createElement('div');
+    secondLineContent.classList = 'menu_item_content';
+    secondLineContent.classList.add('menu_text');
+    secondLineContent.textContent = 'Delete Project';
+    secondMenuLine.appendChild(secondLineContent);
 
     // const deleteProjectActionHolder = document.createElement('div');
     // deleteProjectActionHolder.classList = 'delete_project';

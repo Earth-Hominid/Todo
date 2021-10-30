@@ -289,3 +289,10 @@ const addProjectLogicModule = (() => {
 
   renderProjectName();
 })();
+
+// IIFE which handles the logic for the project menu button
+const projectMenuButtonLogic = (() => {
+  // matchup id's
+  // const dropDownButton = document.getElementById('project_menu_button');
+  // const dropDownContent = document.getElementById('menu_content');
+})();
