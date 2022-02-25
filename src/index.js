@@ -299,5 +299,27 @@ const projectMenuButtonLogic = (() => {
     dropDownContent.classList.toggle('hidden');
   }
 
+  // function raise() {
+  //   dropDownContent.style.display = 'block';
+  // }
+
+  // document.addEventListener('click', raise);
+  // window.onclick = function (event) {
+  //   if (!event.target.matches('.project_menu_button')) {
+  //     const dropdowns = document.getElementsByClassName('menu_content');
+  //     let i;
+  //     for (i = 0; i < dropdowns.length; i++) {
+  //       const openDropdown = dropdowns[i];
+  //       if (!openDropdown.classList.contains('hidden')) {
+  //         openDropdown.classList.add('hidden');
+  //       }
+  //     }
+  //   }
+  // };
+
+  // if (!dropDownContent.classList.contains('hidden'))
+
+  // // dropDownContent.classList.add('hidden');
+
   dropDownButton.addEventListener('click', lower);
 })();
