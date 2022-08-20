@@ -1,32 +1,16 @@
 # Todo Web App | Vanilla JavaScript
 
-The classic one page web application Todo App!
+![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+
+The classic Todo App! This one page web application is dynamically rendered using Vanilla JavaScript and its assets are bundled with webpack.
+
+A live version can be found [here]().
 
 ## Description
 
-This one page web application was architected using both _Robert C. Martin's Single Responsibility Principle_ and _Modular Javascript Rules_.
+This one page web application was architected using both _Robert C. Martin's Single Responsibility Principle_ and _Modular Javascript Rules_. It consists of dynamic re-rendering without a framwork and adds dynamic event listeners.
 
-- Avoid 'tightly coupled' objects
-- Use the Modular JavaScript rules
-- Self-contained code
-- Everything associated with a module is in the module
-- No global variables
-
-- Separation of Concerns
-- DRY code: Do not repeat yourself
-
-- Efficient DOM usage
-- Very few $(selections)
-
-- No memory leaks
-- All events can be unbound
-- Ensure event listeners go away.
-
-- Dynamic re-rendering without a framework
-- Adding dynamic event listeners
-- How to use localStorage to persist website data
-- Advanced JavaScript array methods
-- Code organization best practices
+The code avoids 'tightly coupled' objects and is self contained. There are no global variables, no memory leaks, all events can be unbound, and event listeners can go away.LocalStorage is used to persist data, and advanced JavaScript array methods were used.
 
 ## Dependencies
 
