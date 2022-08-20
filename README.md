@@ -8,7 +8,7 @@ A live version can be found [here]().
 
 ## Description
 
-This one page web application was architected using both _Robert C. Martin's Single Responsibility Principle_ and _Modular Javascript Rules_. It consists of dynamic re-rendering without a framwork and adds dynamic event listeners.
+This one page web application was architected using both _Robert C. Martin's Single Responsibility Principle_ and _Modular Javascript Rules_. It consists of dynamic re-rendering without a framework and adds dynamic event listeners.
 
 The code avoids 'tightly coupled' objects and is self contained. There are no global variables, no memory leaks, all events can be unbound, and event listeners can go away.LocalStorage is used to persist data, and advanced JavaScript array methods were used.
 
