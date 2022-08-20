@@ -2,7 +2,7 @@
 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
-The classic Todo App! This one page web application is dynamically rendered using Vanilla JavaScript and its assets are bundled with webpack.
+An OOP todo APP using SOLID principles. This one page web application is dynamically rendered using Vanilla JavaScript and its assets are bundled with webpack. 
 
 A live version can be found [here]().
 
